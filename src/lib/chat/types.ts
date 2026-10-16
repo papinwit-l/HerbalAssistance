@@ -95,7 +95,7 @@ export interface AnswerMap {
   numbness_onset: "sudden" | "long";
   danger: ("breathing" | "chest_pain" | "high_fever_seizure" | "drowsy_confused" | "stroke_signs")[];
   duration: Duration;
-  resp_flags: ("cough_blood" | "cannot_swallow")[];
+  resp_flags: ("cough_blood" | "cannot_swallow" | "throat_pus")[];
   covid_atk: CovidAtk;
   muscle_flags: ("after_fall" | "hot_swollen")[];
   muscle_route: RoutePref;

@@ -27,6 +27,7 @@ function facts(over: Partial<Facts> = {}): Facts {
 const ids = (list: { herb: { id: string } }[]) => list.map((x) => x.herb.id);
 const reasonsFor = (r: ReturnType<typeof recommend>, id: string) =>
   r.excluded.find((e) => e.herb.id === id)?.reasons;
+const card = (r: ReturnType<typeof recommend>, id: string) => r.recommended.find((x) => x.herb.id === id)!;
 
 describe("matching", () => {
   it("adult with sore throat gets the three cough herbs", () => {
@@ -35,36 +36,69 @@ describe("matching", () => {
     expect(r.excluded).toEqual([]);
   });
 
+  it("cold gets ฟ้าทะลายโจร and ปราบชมพูทวีป (2568)", () => {
+    expect(ids(recommend(facts({ symptom: "cold_flu" })).recommended)).toEqual([
+      "fah-talai-jone",
+      "prap-chomphu-thawip",
+    ]);
+  });
+
   it("route preference keeps only external or only oral herbs, silently", () => {
     const ext = recommend(facts({ symptom: "muscle_joint_pain", route: "external" }));
     expect(ids(ext.recommended)).toEqual(["plai-cream", "ya-prik", "ya-prakhop"]);
     const oral = recommend(facts({ symptom: "muscle_joint_pain", route: "oral" }));
-    expect(ids(oral.recommended)).toEqual(["thaowan-priang", "sahatsathara"]);
+    expect(ids(oral.recommended)).toEqual(["thaowan-priang"]);
     expect(oral.excluded).toEqual([]);
   });
 
-  it("skin herbs need a matching skin_types entry (none yet) → nothing offered", () => {
-    const r = recommend(facts({ symptom: "skin_wound", skinType: "scrape" }));
+  it("skin herbs follow the chosen skin type", () => {
+    expect(ids(recommend(facts({ symptom: "skin_wound", skinType: "scrape" })).recommended)).toEqual([
+      "mangosteen-peel",
+    ]);
+    expect(ids(recommend(facts({ symptom: "skin_wound", skinType: "itch_bite" })).recommended)).toEqual([
+      "phaya-yo-lotion",
+    ]);
+  });
+
+  it("small burn: no herb in the list (aloe is radiation-only since 2568) → first aid instead", () => {
+    const r = recommend(facts({ symptom: "skin_wound", skinType: "small_burn" }));
     expect(r.recommended).toEqual([]);
     expect(r.excluded).toEqual([]);
+    expect(symptomsData.first_aid.small_burn.steps.length).toBeGreaterThan(0);
   });
 
-  it("todo herbs (no data) never appear", () => {
-    const r = recommend(facts({ symptom: "diarrhea" }));
-    expect(ids(r.recommended)).toEqual(["fah-talai-jone"]);
+  it("diarrhea gets the three non-infectious diarrhea herbs", () => {
+    expect(ids(recommend(facts({ symptom: "diarrhea" })).recommended)).toEqual([
+      "fah-talai-jone-diarrhea",
+      "lueang-pit-samut",
+      "ya-kluai",
+    ]);
   });
 
-  it("covid positive has no herb bound yet → empty (UI says: ask a pharmacist)", () => {
-    expect(recommend(facts({ symptom: "covid" })).recommended).toEqual([]);
+  it("covid positive (mild) gets the covid ฟ้าทะลายโจร entry", () => {
+    expect(ids(recommend(facts({ symptom: "covid" })).recommended)).toEqual(["fah-talai-jone-covid"]);
+  });
+
+  it("insomnia only has the hospital-made ยาหอมแก้ลมวิงเวียน", () => {
+    const r = recommend(facts({ symptom: "insomnia" }));
+    expect(ids(r.recommended)).toEqual(["hom-kae-lom-wingwian"]);
+    expect(r.recommended[0].herb.availability).toBe("hospital");
+  });
+
+  it("removed herbs are gone for good", () => {
+    const all = ALL_HERBS.map((h) => h.id);
+    for (const id of ["sahatsathara", "prasa-plai", "aloe-vera", "khing-tea", "khing-capsule"]) {
+      expect(all).not.toContain(id);
+    }
   });
 });
 
 describe("safety filter — PROJECT_GUIDE §10 cases", () => {
-  it("pregnant + constipation → both herbs excluded with the reason", () => {
+  it("pregnant + constipation → มะขามแขก and เพชรสังฆาต excluded; ตรีผลา has no pregnancy rule", () => {
     const r = recommend(facts({ sex: "female", pregnant: true, symptom: "constipation_hemorrhoid" }));
-    expect(r.recommended).toEqual([]);
     expect(reasonsFor(r, "makham-khaek")).toEqual(["ตั้งครรภ์"]);
     expect(reasonsFor(r, "phet-sangkhat")).toEqual(["ตั้งครรภ์"]);
+    expect(ids(r.recommended)).toEqual(["triphala"]);
   });
 
   it("pregnant + sore throat → ฟ้าทะลายโจร excluded, safer options still shown", () => {
@@ -78,14 +112,21 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["อาจตั้งครรภ์"]);
   });
 
+  it("pregnant + dizziness → หอมเทพจิตร excluded by app policy (not in the list)", () => {
+    const r = recommend(facts({ sex: "female", pregnant: true, symptom: "dizziness" }));
+    expect(reasonsFor(r, "hom-thep-pajit")).toEqual(["ตั้งครรภ์"]);
+    expect(HERBS.find((h) => h.id === "hom-thep-pajit")!.app_policy?.length).toBeGreaterThan(0);
+  });
+
   it("breastfeeding → ฟ้าทะลายโจร excluded", () => {
     const r = recommend(facts({ sex: "female", breastfeeding: true }));
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["ให้นมลูก"]);
   });
 
-  it("elderly on anticoagulant + joint pain → ประคบ excluded for age", () => {
+  it("elderly on anticoagulant + joint pain → ยาพริก (medicine) and ประคบ (age) excluded", () => {
     const r = recommend(facts({ ageGroup: "elderly", meds: ["anticoagulant"], symptom: "muscle_joint_pain" }));
-    expect(ids(r.recommended)).toEqual(["plai-cream", "thaowan-priang", "sahatsathara", "ya-prik"]);
+    expect(ids(r.recommended)).toEqual(["plai-cream", "thaowan-priang"]);
+    expect(reasonsFor(r, "ya-prik")).toEqual(["กินยาละลายลิ่มเลือด"]);
     expect(reasonsFor(r, "ya-prakhop")).toEqual(["อายุ 60 ปีขึ้นไป"]);
   });
 
@@ -94,7 +135,6 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
       facts({ ageGroup: "elderly", conditions: ["hypertension"], meds: ["bp_meds"], symptom: "muscle_joint_pain" }),
     );
     expect(ids(r.recommended)).toEqual(["plai-cream", "thaowan-priang"]);
-    expect(reasonsFor(r, "sahatsathara")).toEqual(["เป็นความดันสูง"]);
     expect(reasonsFor(r, "ya-prik")).toEqual(["กินยาความดัน"]);
     expect(reasonsFor(r, "ya-prakhop")).toEqual(["อายุ 60 ปีขึ้นไป"]);
   });
@@ -102,7 +142,18 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
   it("kidney disease + bloating → ธาตุอบเชย excluded", () => {
     const r = recommend(facts({ conditions: ["kidney"], symptom: "bloating" }));
     expect(reasonsFor(r, "that-op-choei")).toEqual(["เป็นโรคไต"]);
-    expect(ids(r.recommended)).toEqual(["khamin-chan", "khing-capsule", "hom-thep-pajit"]);
+    expect(ids(r.recommended)).toEqual(["khamin-chan", "khing"]);
+  });
+
+  it("gallstones + bloating → ขมิ้นชัน and ขิง excluded", () => {
+    const r = recommend(facts({ conditions: ["gallstones"], symptom: "bloating" }));
+    expect(reasonsFor(r, "khamin-chan")).toEqual(["เป็นนิ่วในถุงน้ำดี"]);
+    expect(reasonsFor(r, "khing")).toEqual(["เป็นนิ่วในถุงน้ำดี"]);
+    expect(ids(r.recommended)).toEqual(["that-op-choei"]);
+  });
+
+  it("liver disease + sore throat → ฟ้าทะลายโจร excluded (2568 caution)", () => {
+    expect(reasonsFor(recommend(facts({ conditions: ["liver"] })), "fah-talai-jone")).toEqual(["เป็นโรคตับ"]);
   });
 
   it("diabetes + cough → มะขามป้อม excluded", () => {
@@ -115,20 +166,17 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["เป็นโรคหัวใจ"]);
   });
 
-  it("ภูมิแพ้ counts as pollen allergy: herbs that warn about it are excluded", () => {
+  it("ภูมิแพ้ counts as pollen allergy: every ยาหอม is excluded", () => {
     const r = recommend(facts({ conditions: ["allergy"], symptom: "dizziness" }));
-    expect(ids(r.recommended)).toEqual(["khing-tea"]);
-    expect(reasonsFor(r, "hom-nawakot")).toEqual(["เป็นภูมิแพ้"]);
+    expect(r.recommended).toEqual([]);
     expect(reasonsFor(r, "hom-thep-pajit")).toEqual(["เป็นภูมิแพ้"]);
+    expect(reasonsFor(r, "hom-nawakot")).toEqual(["เป็นภูมิแพ้"]);
+    expect(reasonsFor(r, "hom-kae-lom-wingwian")).toEqual(["เป็นภูมิแพ้"]);
   });
 
-  it("pollen allergy is asked now, so it's no longer a ห้ามใช้ถ้า… line", () => {
-    const r = recommend(facts({ symptom: "dizziness" }));
-    const hom = r.recommended.find((x) => x.herb.id === "hom-nawakot")!;
-    expect(hom.checkFirst).toEqual(["มีไข้"]);
-  });
-
-  it("asthma changes no herb today (no rule in herbs.json yet)", () => {
+  it("asthma rules out ยาพริก (app policy: theophylline) and nothing for cough", () => {
+    const r = recommend(facts({ conditions: ["asthma"], symptom: "muscle_joint_pain" }));
+    expect(reasonsFor(r, "ya-prik")).toEqual(["เป็นหอบหืด"]);
     expect(recommend(facts({ conditions: ["asthma"] }))).toEqual(recommend(facts()));
   });
 
@@ -136,7 +184,7 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
     const r = recommend(facts({ sex: "female", pregnant: true, meds: ["bp_meds"] }));
     const e = r.excluded.find((x) => x.herb.id === "fah-talai-jone")!;
     expect(e.reasons).toEqual(["ตั้งครรภ์", "กินยาความดัน"]);
-    expect(excludedSentence(e)).toBe("ไม่แนะนำยาฟ้าทะลายโจร เพราะตั้งครรภ์ และกินยาความดันค่ะ");
+    expect(excludedSentence(e)).toBe("ไม่แนะนำยาฟ้าทะลายโจร (ชนิดผง) เพราะตั้งครรภ์ และกินยาความดันค่ะ");
   });
 
   it("unsure medicines play safe: herbs with any medicine warning are excluded", () => {
@@ -147,29 +195,37 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
 
   it("other regular medicines exclude herbs that warn about them", () => {
     const r = recommend(facts({ meds: ["other_meds"], symptom: "muscle_joint_pain" }));
-    expect(reasonsFor(r, "sahatsathara")).toEqual(["กินยาอื่นเป็นประจำ"]);
+    expect(reasonsFor(r, "ya-prik")).toEqual(["กินยาอื่นเป็นประจำ"]);
+  });
+
+  it("diabetes medicine rules out มะระขี้นก", () => {
+    const r = recommend(facts({ meds: ["diabetes_meds"], symptom: "poor_appetite" }));
+    expect(reasonsFor(r, "mara-khinok")).toEqual(["กินยาเบาหวาน"]);
   });
 
   it("nobody is left → empty list, reasons kept for the message", () => {
-    const r = recommend(facts({ sex: "female", pregnant: true, symptom: "constipation_hemorrhoid" }));
+    const r = recommend(facts({ sex: "female", breastfeeding: true, symptom: "poor_appetite" }));
     expect(r.recommended).toHaveLength(0);
-    expect(r.excluded).toHaveLength(2);
+    expect(reasonsFor(r, "mara-khinok")).toEqual(["ให้นมลูก"]);
   });
 });
 
 describe("card extras", () => {
-  it("lists what the chat never asked as ห้ามใช้ถ้า…", () => {
-    const r = recommend(facts({ symptom: "muscle_joint_pain" }));
-    const sahat = r.recommended.find((x) => x.herb.id === "sahatsathara")!;
-    expect(sahat.checkFirst).toEqual(["เป็นโรคกระเพาะ / แผลในกระเพาะอาหาร", "มีไข้"]);
+  it("lists what the chat never asked as ห้ามใช้ถ้า…, but not what it asks", () => {
+    const fah = card(recommend(facts()), "fah-talai-jone");
+    expect(fah.checkFirst).toEqual([
+      "เคยเป็นโรคหัวใจรูมาติก",
+      "เคยเป็นไตอักเสบหลังติดเชื้อสเตรปโตคอคคัส",
+      "เจ็บคอจากเชื้อสเตรปโตคอคคัส (แพทย์บอก)",
+    ]);
+    expect(card(recommend(facts({ symptom: "dizziness" })), "hom-nawakot").checkFirst).toEqual(["มีไข้"]);
   });
 
-  it("flags a herb whose max_days the duration reaches", () => {
+  it("a long illness does not rule a herb out; it stresses seeing a doctor", () => {
     const r = recommend(facts({ durationDays: 7 }));
-    const fah = r.recommended.find((x) => x.herb.id === "fah-talai-jone")!;
-    expect(fah.nearMaxDays).toBe(true);
-    const short = recommend(facts({ durationDays: 3 })).recommended.find((x) => x.herb.id === "fah-talai-jone")!;
-    expect(short.nearMaxDays).toBe(false);
+    expect(card(r, "fah-talai-jone").nearMaxDays).toBe(true);
+    expect(r.excluded).toEqual([]);
+    expect(card(recommend(facts({ durationDays: 1 })), "fah-talai-jone").nearMaxDays).toBe(false);
   });
 });
 
@@ -178,8 +234,8 @@ describe("herbs.json consistency", () => {
   const askedConditions = new Set<string>(CONDITIONS);
   const askedMeds = new Set<string>(MEDS);
 
-  it("parses (schema) and keeps todo entries out of the engine", () => {
-    expect(ALL_HERBS.length).toBeGreaterThan(HERBS.length);
+  it("parses (schema) and the engine never sees todo entries", () => {
+    expect(ALL_HERBS.length).toBeGreaterThanOrEqual(HERBS.length);
     expect(HERBS.every((h) => h.status !== ("todo" as string))).toBe(true);
   });
 
@@ -190,6 +246,13 @@ describe("herbs.json consistency", () => {
 
   it("every symptom code exists in symptoms.json", () => {
     for (const h of ALL_HERBS) for (const s of h.symptoms) expect(known, `${h.id}: ${s}`).toContain(s);
+  });
+
+  it("every entry cites a page of the national list", () => {
+    for (const h of HERBS) {
+      expect(h.sources.length, h.id).toBeGreaterThan(0);
+      for (const s of h.sources) expect(s.page, `${h.id}: ${s.name}`).toBeTruthy();
+    }
   });
 
   it("every condition / med / flag code is either asked in the chat or has a ห้ามใช้ถ้า label", () => {

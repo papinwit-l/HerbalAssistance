@@ -13,19 +13,46 @@ export default function ResultView({ facts, notes }: { facts: Facts; notes: Note
   const { recommended, excluded } = recommend(facts);
   const group = symptomsData.groups.find((g) => g.code === facts.symptom);
   const label = symptomLabel(facts.selectedSymptom);
+  /* Small burn: the list has no self-care herb (aloe is radiation-only since 2568), so show first aid. */
+  const firstAid = facts.skinType === "small_burn" ? symptomsData.first_aid.small_burn : undefined;
 
   const summary =
-    recommended.length > 0
-      ? `จากอาการ${label}ของคุณ หนูแนะนำสมุนไพร ${recommended.length} ชนิดค่ะ อ่านวิธีใช้และข้อควรระวังด้านล่างนะคะ`
-      : excluded.length > 0
-        ? `ตอนนี้ยังไม่มีสมุนไพรที่เหมาะกับคุณค่ะ เพราะ${[...new Set(excluded.flatMap((e) => e.reasons))].join(" และ")} แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`
-        : `ตอนนี้หนูยังไม่มีข้อมูลสมุนไพรสำหรับอาการ${label}ค่ะ แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`;
+    firstAid && recommended.length === 0
+      ? "แผลไฟไหม้ น้ำร้อนลวกขนาดเล็ก ไม่มียาสมุนไพรในบัญชีที่หนูแนะนำค่ะ ทำตามวิธีปฐมพยาบาลด้านล่างนะคะ"
+      : recommended.length > 0
+        ? `จากอาการ${label}ของคุณ หนูแนะนำสมุนไพร ${recommended.length} ชนิดค่ะ อ่านวิธีใช้และข้อควรระวังด้านล่างนะคะ`
+        : excluded.length > 0
+          ? `ตอนนี้ยังไม่มีสมุนไพรที่เหมาะกับคุณค่ะ เพราะ${[...new Set(excluded.flatMap((e) => e.reasons))].join(" และ")} แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`
+          : `ตอนนี้หนูยังไม่มีข้อมูลสมุนไพรสำหรับอาการ${label}ค่ะ แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`;
 
   const maxDays = recommended.map((r) => r.herb.max_days).filter((d): d is number => d !== null);
 
   return (
     <div className="flex flex-col gap-4">
       <PersonaBubbles bubbles={[summary]} />
+
+      {firstAid && (
+        <section className="flex flex-col gap-2 rounded-md bg-surface-raised p-4 shadow-card">
+          <h2 className="text-title">{firstAid.title}</h2>
+          <ol className="list-decimal pl-6 text-body">
+            {firstAid.steps.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ol>
+          <h3 className="text-heading text-refer-ink">ห้ามทำ</h3>
+          <ul className="list-disc pl-6 text-body">
+            {firstAid.dont.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+          <h3 className="text-heading text-refer-ink">ไปโรงพยาบาลถ้า…</h3>
+          <ul className="list-disc pl-6 text-body">
+            {firstAid.see_doctor_if.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {recommended.map((r) => (
         <HerbCard key={r.herb.id} item={r} />

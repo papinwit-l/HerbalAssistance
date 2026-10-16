@@ -1,5 +1,5 @@
 {
-  "_note": "enabled=false groups have herbs available but are not yet in CHAT_SCRIPT.md. self_care_tips / see_doctor_if: fill from a credible source.",
+  "_note": "enabled=false groups have herbs available but are not yet in CHAT_SCRIPT.md. self_care_tips / see_doctor_if: fill from a credible source. first_aid: shown instead of herbs where the list has no self-care herb (small_burn).",
   "groups": [
     {
       "code": "cough_sore_throat",
@@ -157,5 +157,28 @@
       "self_care_tips": [],
       "see_doctor_if": []
     }
-  ]
+  ],
+  "first_aid": {
+    "small_burn": {
+      "title": "ปฐมพยาบาลแผลไฟไหม้ น้ำร้อนลวก (แผลเล็ก)",
+      "steps": [
+        "ล้างหรือแช่บริเวณที่ไหม้ในน้ำสะอาดอุณหภูมิปกติ (ไม่ใช่น้ำแข็ง) ประมาณ 20 นาที",
+        "ถอดแหวน นาฬิกา หรือของรัดบริเวณนั้นออกก่อนที่จะบวม",
+        "ปิดแผลหลวมๆ ด้วยผ้าก๊อซหรือผ้าสะอาด",
+        "ถ้ามีตุ่มน้ำพอง อย่าเจาะหรือลอกผิวออก"
+      ],
+      "dont": [
+        "ห้ามทายาสีฟัน น้ำปลา ไข่ขาว น้ำมัน หรือเนย บนแผล",
+        "ห้ามใช้น้ำแข็งประคบโดยตรง"
+      ],
+      "see_doctor_if": [
+        "แผลใหญ่กว่าฝ่ามือ หรืออยู่ที่หน้า มือ เท้า อวัยวะเพศ ข้อพับ",
+        "ไหม้จากไฟฟ้าหรือสารเคมี",
+        "ผิวขาวซีด แข็ง หรือไหม้ดำ ไม่ค่อยรู้สึกเจ็บ",
+        "แผลบวมแดงมากขึ้น มีหนอง หรือมีไข้"
+      ],
+      "source_status": "TODO data team: ยังไม่ได้อ้างอิงแหล่ง — ตรวจกับคำแนะนำของกระทรวงสาธารณสุขก่อนเปลี่ยนเป็น verified",
+      "note": "ยาว่านหางจระเข้ในบัญชี 2568 ใช้เฉพาะผิวหนังอักเสบจากการฉายรังสี จึงไม่แนะนำยาสมุนไพรสำหรับแผลไฟไหม้"
+    }
+  }
 }

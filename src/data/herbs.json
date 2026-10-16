@@ -1,18 +1,283 @@
 {
-  "_note": "Draft built from two provincial public-health sources (see each entry's sources), not yet checked against the national list (บัญชียาหลักแห่งชาติด้านสมุนไพร). Data teammate: verify every field against the official document, then set status to 'verified' and fill checked_by. status 'todo' = no data found; 'draft' = filled from provincial source. exclude_if = contraindication (always remove). caution_if = caution in source; recommended app policy for villager self-care: treat caution_if pregnant/breastfeeding/age/elderly/conditions/meds/flags as exclude and show the reason. flags need extra chat questions: fever, suspected_dengue, pollen_allergy, capsaicin_allergy, menstruating, heavy_menstruation, postpartum_bleeding, open_wound, acute_inflammation_24h. Dose depends on product strength: show the label dose first, this as reference.",
-  "generated": "2026-10-14",
+  "_note": "Rebuilt 2026-10-17 from the national list: บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 and ฉบับที่ 2 พ.ศ. 2568 (2568 wins where it replaced an entry). Basic list (บัญชีรายการยาพื้นฐาน) only. Every entry cites a page. status stays 'draft' until the data team checks it against the cited page, then 'verified' + checked_by. exclude_if = contraindication; caution_if = caution in the list (app policy: also excluded, reason shown). max_days = days of use after which, if not better, the user should see a doctor. availability: 'shop' = sold with a registration number; 'hospital' = (รพ.) hospital-made form only. app_policy lists every rule the app added on top of the list. Removed from the draft: ยาสหัศธารา and ยาประสะไพล (บัญชีรายการยาเฉพาะ), ยาว่านหางจระเข้ (2568: radiation dermatitis only), ยาพญายอครีม (herpes; no chat option). Details: claude/HERB_VERIFICATION.md in the project.",
+  "generated": "2026-10-17",
   "herbs": [
     {
-      "id": "plai-cream",
-      "name_th": "ยาไพล (ครีม / น้ำมันไพล)",
+      "id": "fah-talai-jone",
+      "name_th": "ยาฟ้าทะลายโจร (ชนิดผง)",
       "type": "single",
-      "route": "external",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
-        "muscle_joint_pain"
+        "cough_sore_throat",
+        "cold_flu"
       ],
-      "form": "ครีม / น้ำมัน",
-      "dose": "ครีม: ทาบริเวณที่ปวด วันละ 2 ครั้ง เช้า-เย็น · น้ำมัน: ทาบริเวณที่ฟกช้ำ เคล็ดขัดยอก วันละ 2–3 ครั้ง",
-      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "form": "แคปซูล / เม็ด / ลูกกลอน",
+      "indication": "บรรเทาอาการเจ็บคอ อาการหวัด และไข้หวัดใหญ่ที่ไม่รุนแรง",
+      "dose": "ครั้งละ 1.5–3 กรัม วันละ 4 ครั้ง",
+      "how_to_take": "หลังอาหารและก่อนนอน",
+      "timing": "after_meal",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": null,
+        "conditions": [
+          "rheumatic_heart",
+          "post_strep_nephritis"
+        ],
+        "meds": [],
+        "flags": [
+          "strep_throat",
+          "severe_bacterial_throat"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "liver"
+        ],
+        "meds": [
+          "anticoagulant",
+          "bp_meds",
+          "other_meds"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามใช้แก้เจ็บคอ ถ้าเจ็บคอจากเชื้อสเตรปโตคอคคัส เคยเป็นไตอักเสบหลังติดเชื้อนี้ เคยเป็นโรคหัวใจรูห์มาติค หรือมีตุ่มหนองในคอ ไข้สูง หนาวสั่น",
+        "ห้ามใช้ในหญิงตั้งครรภ์และหญิงให้นมบุตร",
+        "ถ้ามีผื่น ปากบวม ตาบวม หน้าบวม ให้หยุดยาทันทีและไปพบแพทย์",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด ยาลดความดัน หรือยาอื่นเป็นประจำ และผู้ที่มีอาการของตับผิดปกติ",
+        "ใช้ติดต่อกันเป็นเวลานาน อาจทำให้แขนขาชาหรืออ่อนแรง"
+      ],
+      "side_effects": [
+        "ปวดท้อง ท้องเสีย คลื่นไส้",
+        "เบื่ออาหาร วิงเวียนศีรษะ ใจสั่น",
+        "อาจเกิดลมพิษ"
+      ],
+      "see_doctor_if": [
+        "ใช้ติดต่อกัน 3 วันแล้วไม่ดีขึ้น หรืออาการแย่ลง"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/fah-talai-jone.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 47–49"
+        },
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 37"
+        }
+      ],
+      "notes": [
+        "ชนิดสารสกัด: andrographolide 60–120 มก./วัน แบ่ง 3–4 ครั้ง หลังอาหาร 5–7 วัน (2568 หน้า 48–49)"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "fah-talai-jone-diarrhea",
+      "name_th": "ยาฟ้าทะลายโจร (สำหรับท้องเสีย)",
+      "type": "single",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "diarrhea"
+      ],
+      "form": "แคปซูล / เม็ด / ลูกกลอน",
+      "indication": "บรรเทาอาการท้องเสียที่ไม่ได้เกิดจากการติดเชื้อ (อุจจาระไม่มีมูกหรือเลือดปน)",
+      "dose": "ครั้งละ 500 มก.–2 กรัม วันละ 4 ครั้ง",
+      "how_to_take": "หลังอาหารและก่อนนอน",
+      "timing": "after_meal",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "liver"
+        ],
+        "meds": [
+          "anticoagulant",
+          "bp_meds",
+          "other_meds"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์และหญิงให้นมบุตร",
+        "ถ้ามีผื่น ปากบวม ตาบวม หน้าบวม ให้หยุดยาทันทีและไปพบแพทย์",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด ยาลดความดัน หรือยาอื่นเป็นประจำ และผู้ที่มีอาการของตับผิดปกติ",
+        "ใช้ติดต่อกันเป็นเวลานาน อาจทำให้แขนขาชาหรืออ่อนแรง"
+      ],
+      "side_effects": [
+        "ปวดท้อง ท้องเสีย คลื่นไส้",
+        "เบื่ออาหาร วิงเวียนศีรษะ ใจสั่น",
+        "อาจเกิดลมพิษ"
+      ],
+      "see_doctor_if": [
+        "ใช้ติดต่อกัน 3 วันแล้วไม่ดีขึ้น หรืออาการแย่ลง"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/fah-talai-jone-diarrhea.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 17"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "fah-talai-jone-covid",
+      "name_th": "ยาฟ้าทะลายโจร (สำหรับโควิด 19)",
+      "type": "single",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "covid"
+      ],
+      "form": "แคปซูล / เม็ด",
+      "indication": "ผู้ป่วยโควิด 19 ที่มีความรุนแรงน้อย",
+      "dose": "ยาที่มี andrographolide 180 มก. ต่อวัน แบ่งวันละ 3 ครั้ง นาน 5 วัน",
+      "how_to_take": "ดูปริมาณ andrographolide บนฉลาก",
+      "timing": "as_label",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "liver"
+        ],
+        "meds": [
+          "anticoagulant",
+          "other_meds"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์และหญิงให้นมบุตร",
+        "ถ้ามีผื่น ปากบวม ตาบวม หน้าบวม ให้หยุดยาทันทีและไปพบแพทย์",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด หรือยาอื่นเป็นประจำ (เช่น ยาลดไขมันกลุ่ม statins) และผู้ที่มีอาการของตับผิดปกติ",
+        "ใช้ติดต่อกันเป็นเวลานาน อาจทำให้แขนขาชาหรืออ่อนแรง"
+      ],
+      "side_effects": [
+        "ปวดท้อง ท้องเสีย คลื่นไส้",
+        "เบื่ออาหาร วิงเวียนศีรษะ ใจสั่น",
+        "อาจเกิดลมพิษ"
+      ],
+      "see_doctor_if": [
+        "ใช้ติดต่อกัน 3 วันแล้วไม่ดีขึ้น",
+        "อาการแย่ลงระหว่างใช้ยา"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/fah-talai-jone-covid.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 56–57"
+        }
+      ],
+      "notes": [
+        "ยังไม่มีงานวิจัยในผู้ป่วยอายุต่ำกว่า 12 ปี"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "prasa-mawaeng",
+      "name_th": "ยาประสะมะแว้ง",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาเม็ด",
+      "indication": "บรรเทาอาการไอ มีเสมหะ ทำให้ชุ่มคอ ช่วยขับเสมหะ",
+      "dose": "ผู้ใหญ่ ครั้งละ 1–1.4 กรัม เมื่อมีอาการ",
+      "how_to_take": "ละลายน้ำมะนาวแทรกเกลือ หรืออม",
+      "timing": "as_needed",
+      "max_days": 15,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ไม่ควรใช้ติดต่อกันนานเกิน 15 วัน ถ้าไม่ดีขึ้นควรปรึกษาแพทย์",
+        "ผู้ที่ต้องจำกัดเกลือ (เช่น โรคไต ความดันสูง) ไม่ควรใช้น้ำมะนาวแทรกเกลือ"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/prasa-mawaeng.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 44–45"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "kae-ai-makham-pom",
+      "name_th": "ยาแก้ไอผสมมะขามป้อม",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "hospital",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาน้ำ (รพ.)",
+      "indication": "บรรเทาอาการไอ ขับเสมหะ ทำให้ชุ่มคอ",
+      "dose": "จิบเมื่อมีอาการไอ ทุก 4 ชั่วโมง",
+      "how_to_take": "จิบ",
       "timing": "as_needed",
       "max_days": null,
       "exclude_if": {
@@ -27,26 +292,173 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
-        "conditions": [],
+        "conditions": [
+          "diabetes"
+        ],
         "meds": [],
-        "flags": []
+        "flags": [
+          "diarrhea_prone"
+        ],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามทาบริเวณรอบดวงตา เยื่อบุอ่อน หรือผิวหนังที่มีแผลเปิด"
+        "ระวังในผู้ที่ท้องเสียง่าย (มะขามป้อมมีฤทธิ์ระบาย)",
+        "ระวังในผู้ป่วยเบาหวานที่คุมน้ำตาลไม่ได้ (ในตำรับมีน้ำตาล)"
       ],
       "side_effects": [],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/plai-cream.jpg",
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/kae-ai-makham-pom.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 33"
+        },
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 33"
         }
       ],
       "notes": [
-        "ที่มาแยกเป็น 2 รายการ (ยาไพลครีม, น้ำมันไพล) — รวมไว้รายการเดียว"
+        "2568 เพิ่มสูตรตำรับที่ 3 ชนิดลูกกลอน: อมครั้งละ 1–2 เม็ด วันละ 3–4 ครั้ง (หน้า 42)"
+      ],
+      "status": "draft",
+      "checked_by": null,
+      "app_policy": [
+        "caution_if.conditions diabetes: บัญชีระวังเฉพาะเบาหวานที่คุมน้ำตาลไม่ได้ แอปไม่ได้ถามระดับการคุม จึงไม่แนะนำในผู้ป่วยเบาหวานทุกคน"
+      ]
+    },
+    {
+      "id": "prap-chomphu-thawip",
+      "name_th": "ยาปราบชมพูทวีป",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "cold_flu",
+        "allergic_rhinitis"
+      ],
+      "form": "แคปซูล",
+      "indication": "บรรเทาอาการหวัดในระยะแรก และอาการจากการแพ้อากาศ / โรคจมูกอักเสบภูมิแพ้",
+      "dose": "วันละ 3–4 กรัม แบ่งให้วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร เช้า กลางวัน เย็น",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": 12,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "fever",
+          "rhinitis_complication"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "hypertension",
+          "heart",
+          "peptic_ulcer",
+          "gerd",
+          "liver",
+          "kidney"
+        ],
+        "meds": [
+          "other_meds"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์ ผู้ที่มีไข้ และเด็ก",
+        "ห้ามใช้เมื่อมีภาวะแทรกซ้อน เช่น ไซนัสอักเสบ ไข้สูง น้ำมูกหรือเสมหะเขียว",
+        "ระวังในผู้ป่วยความดันสูง โรคหัวใจ แผลในกระเพาะอาหาร กรดไหลย้อน (ยารสร้อน)",
+        "ระวังใช้เกินขนาดในผู้ที่มีปัญหาตับ ไต หรือทางเดินปัสสาวะ (การบูร)",
+        "อาจมีผลกับยา phenytoin, propranolol, theophylline และ rifampicin"
+      ],
+      "side_effects": [
+        "แสบร้อนยอดอก แสบร้อนคอ",
+        "ท้องผูก",
+        "ปากแห้ง คอแห้ง"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/prap-chomphu-thawip.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 46–47"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null,
+      "app_policy": [
+        "exclude_if.age_below 12: บัญชีเขียนว่า 'เด็ก' โดยไม่ระบุอายุ"
+      ]
+    },
+    {
+      "id": "plai-cream",
+      "name_th": "ยาไพล (ครีม)",
+      "type": "single",
+      "route": "external",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "ครีม",
+      "indication": "บรรเทาอาการบวม ฟกช้ำ เคล็ดยอก ปวดเมื่อยตามร่างกาย",
+      "dose": "ทาและถูเบาๆ บริเวณที่มีอาการ วันละ 2–3 ครั้ง",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "open_wound"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามทาบริเวณขอบตาและเนื้อเยื่ออ่อน",
+        "ห้ามทาบริเวณผิวหนังที่มีบาดแผลหรือแผลเปิด"
+      ],
+      "side_effects": [
+        "อาจเกิดผื่นแพ้ในบางคน"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/plai-cream.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 50, 60–61"
+        },
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 41"
+        }
+      ],
+      "notes": [
+        "ยาน้ำมันไพล และยาขี้ผึ้งไพล มีเฉพาะชนิดที่โรงพยาบาลผลิต (รพ.)"
       ],
       "status": "draft",
       "checked_by": null
@@ -56,12 +468,15 @@
       "name_th": "ยาเถาวัลย์เปรียง",
       "type": "single",
       "route": "oral",
+      "account": "basic",
+      "availability": "hospital",
       "symptoms": [
         "muscle_joint_pain"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหาร และก่อนนอน",
+      "form": "แคปซูล (รพ.)",
+      "indication": "บรรเทาอาการปวดกล้ามเนื้อ ลดการอักเสบของกล้ามเนื้อ",
+      "dose": "ครั้งละ 500 มก.–1 กรัม วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหารทันที",
       "timing": "after_meal",
       "max_days": null,
       "exclude_if": {
@@ -76,96 +491,32 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [
           "peptic_ulcer"
         ],
         "meds": [],
-        "flags": []
+        "flags": [],
+        "elderly": false
       },
       "cautions": [
         "ห้ามใช้ในหญิงตั้งครรภ์",
-        "ระวังในผู้ที่เป็นโรคกระเพาะ / แผลในกระเพาะอาหาร"
+        "ระวังในผู้ที่เป็นแผลในกระเพาะอาหาร (ออกฤทธิ์คล้ายยาแก้ปวดกลุ่ม NSAIDs)",
+        "อาจระคายเคืองทางเดินอาหาร"
       ],
       "side_effects": [
-        "ระคายเคืองกระเพาะ ปวดท้อง",
+        "ปวดท้อง",
         "ท้องผูก",
         "ปัสสาวะบ่อย",
         "คอแห้ง",
         "ใจสั่น"
       ],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
       "image": "/herbs/thaowan-priang.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "sahatsathara",
-      "name_th": "ยาสหัศธารา",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "muscle_joint_pain"
-      ],
-      "form": "แคปซูล 500 มก.",
-      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร",
-      "timing": "before_meal",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": true,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": [
-          "fever"
-        ]
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "hypertension",
-          "heart",
-          "peptic_ulcer",
-          "liver",
-          "kidney"
-        ],
-        "meds": [
-          "other_meds"
-        ],
-        "flags": []
-      },
-      "cautions": [
-        "ห้ามใช้ในหญิงตั้งครรภ์และผู้ที่มีไข้",
-        "ระวังในผู้ป่วยความดันสูง โรคหัวใจ โรคกระเพาะ กรดไหลย้อน",
-        "ผู้ที่มีปัญหาตับหรือไตไม่ควรใช้ต่อเนื่อง",
-        "มีพริกไทยสูง อาจมีผลกับยา phenytoin, propranolol, theophylline, rifampicin"
-      ],
-      "side_effects": [
-        "แสบร้อนกลางอก แสบท้อง",
-        "คลื่นไส้",
-        "คอแห้ง",
-        "ผื่นคัน"
-      ],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/sahatsathara.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 39"
         }
       ],
       "notes": [],
@@ -174,13 +525,16 @@
     },
     {
       "id": "ya-prik",
-      "name_th": "ยาเจลพริก",
+      "name_th": "ยาพริก (เจล 0.025%)",
       "type": "single",
       "route": "external",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "muscle_joint_pain"
       ],
       "form": "เจล",
+      "indication": "บรรเทาอาการปวดข้อ ปวดกล้ามเนื้อ",
       "dose": "ทาบริเวณที่ปวด วันละ 3–4 ครั้ง",
       "how_to_take": "ใช้ทาภายนอกเท่านั้น",
       "timing": "as_needed",
@@ -199,45 +553,57 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [
-          "bp_meds"
+        "conditions": [
+          "asthma"
         ],
-        "flags": []
+        "meds": [
+          "anticoagulant",
+          "bp_meds",
+          "other_meds"
+        ],
+        "flags": [
+          "broken_skin"
+        ],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ถ้าแพ้พริก",
-        "ห้ามทาบริเวณรอบดวงตาและเยื่อบุอ่อน",
-        "ผู้ที่กินยาความดันกลุ่ม ACE inhibitors อาจไอมากขึ้น"
+        "ห้ามใช้ถ้าแพ้พริก (capsaicin)",
+        "ห้ามสัมผัสบริเวณตา",
+        "ระวังทาบริเวณผิวบอบบางหรือผิวหนังที่แตก",
+        "อาจมีผลกับยาละลายลิ่มเลือด ยาต้านเกล็ดเลือด ยาความดันกลุ่ม ACE inhibitors (อาจไอมากขึ้น) และยาหอบหืด theophylline"
       ],
       "side_effects": [
-        "ผิวแดง",
-        "แสบร้อน เจ็บบริเวณที่ทา"
+        "ผิวหนังแดง ปวด และแสบร้อน"
       ],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/ya-prik.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 51–52"
         }
       ],
       "notes": [],
       "status": "draft",
-      "checked_by": null
+      "checked_by": null,
+      "app_policy": [
+        "caution_if.conditions asthma: บัญชีระวังยาหอบหืด theophylline แอปไม่ได้ถามชื่อยา จึงไม่แนะนำในผู้ป่วยหอบหืด"
+      ]
     },
     {
       "id": "ya-prakhop",
       "name_th": "ยาประคบสมุนไพร",
       "type": "formula",
       "route": "external",
+      "account": "basic",
+      "availability": "hospital",
       "symptoms": [
         "muscle_joint_pain"
       ],
-      "form": "ลูกประคบ (สด / แห้ง)",
-      "dose": "ประคบบริเวณที่ปวดเมื่อยเมื่อมีอาการ",
+      "form": "ลูกประคบสด / แห้ง (รพ.)",
+      "indication": "ประคบเพื่อลดอาการปวด ช่วยคลายกล้ามเนื้อ เอ็น และข้อ",
+      "dose": "นึ่งแล้วประคบขณะยังอุ่น วันละ 1–2 ครั้ง (ลูกหนึ่งใช้ได้ 3–4 ครั้ง)",
       "how_to_take": "ใช้ภายนอกเท่านั้น",
       "timing": "as_needed",
       "max_days": null,
@@ -256,532 +622,28 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": true,
         "conditions": [
           "diabetes"
         ],
         "meds": [],
-        "flags": []
+        "flags": [],
+        "elderly": true
       },
       "cautions": [
-        "ห้ามประคบบริเวณที่มีแผล",
-        "ห้ามประคบช่วง 24 ชั่วโมงแรกที่บวม แดง ร้อน",
-        "ระวังลูกประคบร้อนเกินไป โดยเฉพาะผู้ป่วยเบาหวาน เด็ก ผู้ป่วยอัมพาต และผู้สูงอายุ",
-        "หลังประคบไม่ควรอาบน้ำทันที"
+        "ห้ามประคบบริเวณที่มีบาดแผล",
+        "ห้ามประคบเมื่ออักเสบเฉียบพลัน เช่น ข้อเท้าแพลง หรือบวม แดง ร้อน ใน 24 ชั่วโมงแรก",
+        "ระวังลูกประคบร้อนเกินไป โดยเฉพาะผู้ป่วยเบาหวาน อัมพาต เด็ก และผู้สูงอายุ",
+        "หลังประคบไม่ควรอาบน้ำทันที",
+        "ระวังในผู้ที่แพ้ส่วนประกอบของยาประคบ"
       ],
       "side_effects": [],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
       "image": "/herbs/ya-prakhop.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "fah-talai-jone",
-      "name_th": "ยาฟ้าทะลายโจร",
-      "type": "single",
-      "route": "oral",
-      "symptoms": [
-        "cold_flu",
-        "cough_sore_throat",
-        "diarrhea"
-      ],
-      "form": "แคปซูล 400 มก.",
-      "dose": "ครั้งละ 3–4 แคปซูล วันละ 4 ครั้ง",
-      "how_to_take": "ตามฉลาก",
-      "timing": "as_needed",
-      "max_days": 7,
-      "exclude_if": {
-        "pregnant": true,
-        "breastfeeding": true,
-        "age_below": null,
-        "conditions": [
-          "rheumatic_heart"
-        ],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [
-          "anticoagulant",
-          "bp_meds"
-        ],
-        "flags": []
-      },
-      "cautions": [
-        "ห้ามใช้ในหญิงตั้งครรภ์และให้นมบุตร",
-        "ห้ามใช้ในผู้ที่เคยเป็นโรคหัวใจรูมาติก",
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
-        "อาจเสริมฤทธิ์ยาลดความดัน"
-      ],
-      "side_effects": [
-        "ใช้นานอาจชาปลายมือปลายเท้า หรืออ่อนแรง"
-      ],
-      "see_doctor_if": [
-        "ใช้ครบ 7 วันแล้วไม่ดีขึ้น"
-      ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/fah-talai-jone.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ขนาดในโรคโควิด 19 ต่างจากนี้ — ยังไม่ผูกกับกลุ่ม covid",
-        "ข้อบ่งใช้ท้องเสียหมายถึงท้องเสียที่ไม่ติดเชื้อ",
-        "ความแรงต่อแคปซูลต่างกันตามผลิตภัณฑ์ (เช่น 350 มก.) ต้องเทียบกับฉลาก"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "prasa-mawaeng",
-      "name_th": "ยาประสะมะแว้ง",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "cough_sore_throat"
-      ],
-      "form": "ยาเม็ดอม",
-      "dose": "อมครั้งละ 3–5 เม็ด เมื่อมีอาการ",
-      "how_to_take": "อมในปาก",
-      "timing": "as_needed",
-      "max_days": 15,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [
-        "ไม่ควรใช้ต่อเนื่องเกิน 15 วัน"
-      ],
-      "side_effects": [],
-      "see_doctor_if": [
-        "ใช้แล้วไม่ดีขึ้น"
-      ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/prasa-mawaeng.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: ไอมีเสมหะ ช่วยละลายเสมหะ ทำให้ชุ่มคอ"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "kae-ai-makham-pom",
-      "name_th": "ยาแก้ไอผสมมะขามป้อม",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "cough_sore_throat"
-      ],
-      "form": "ยาน้ำ",
-      "dose": "ครั้งละ 15 มล. วันละ 3 ครั้ง หรือจิบเมื่อมีอาการ",
-      "how_to_take": "จิบ",
-      "timing": "as_needed",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [
-          "diabetes"
-        ],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [
-        "ห้ามใช้ในผู้ป่วยเบาหวานที่ควบคุมไม่ได้",
-        "ระวังในผู้ที่ท้องเสียง่าย (มะขามป้อมมีฤทธิ์ระบาย)"
-      ],
-      "side_effects": [],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/kae-ai-makham-pom.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ที่มาห้ามเฉพาะเบาหวานที่ควบคุมไม่ได้ — แอปไม่รู้ว่าควบคุมได้หรือไม่ จึงห้ามผู้ป่วยเบาหวานทั้งหมดไว้ก่อน"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "khiao-hom",
-      "name_th": "ยาเขียวหอม",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "fever"
-      ],
-      "form": "ยาผง",
-      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร และก่อนนอน",
-      "timing": "before_meal",
-      "max_days": 3,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": [
-          "suspected_dengue"
-        ]
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": [
-          "pollen_allergy"
-        ]
-      },
-      "cautions": [
-        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
-        "ระวังในผู้ที่แพ้เกสรดอกไม้"
-      ],
-      "side_effects": [],
-      "see_doctor_if": [
-        "ไข้ไม่ลดภายใน 3 วัน"
-      ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/khiao-hom.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: ไข้ ร้อนใน กระหายน้ำ บรรเทาอาการหัด อีสุกอีใส — อยู่ในกลุ่ม fever ไม่ใช่ cold_flu"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "prap-chomphu-thawip",
-      "name_th": "ยาปราบชมพูทวีป",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "allergic_rhinitis"
-      ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 2–3 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร และก่อนนอน",
-      "timing": "before_meal",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": true,
-        "breastfeeding": false,
-        "age_below": 12,
-        "conditions": [],
-        "meds": [],
-        "flags": [
-          "fever"
-        ]
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "hypertension",
-          "heart",
-          "peptic_ulcer"
-        ],
-        "meds": [
-          "other_meds"
-        ],
-        "flags": [
-          "pollen_allergy"
-        ]
-      },
-      "cautions": [
-        "ห้ามใช้ในหญิงตั้งครรภ์ ผู้ที่มีไข้ และเด็ก",
-        "ระวังในผู้ป่วยความดันสูง โรคหัวใจ โรคกระเพาะ",
-        "มีพริกไทยสูง อาจมีผลกับยา phenytoin, propranolol, theophylline, rifampicin"
-      ],
-      "side_effects": [
-        "แสบร้อนบริเวณลิ้นปี่"
-      ],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/prap-chomphu-thawip.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้คือภูมิแพ้ / แพ้อากาศ ไม่ใช่ไข้หวัด — แยกเป็นกลุ่ม allergic_rhinitis",
-        "age_below 12 ตั้งไว้เพราะที่มาระบุ 'เด็ก' โดยไม่บอกอายุ"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "aloe-vera",
-      "name_th": "ว่านหางจระเข้",
-      "symptoms": [
-        "skin_wound"
-      ],
-      "status": "todo",
-      "notes": [
-        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
-      ],
-      "checked_by": null
-    },
-    {
-      "id": "phaya-yo-cream",
-      "name_th": "ยาพญายอ (ครีม)",
-      "type": "single",
-      "route": "external",
-      "symptoms": [
-        "skin_wound"
-      ],
-      "form": "ครีม",
-      "dose": "ทาบริเวณที่เป็น วันละ 5 ครั้ง (ทุก 4 ชั่วโมง)",
-      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
-      "timing": "as_needed",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [],
-      "side_effects": [],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/phaya-yo-cream.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: เริม งูสวัด — ควรผูกกับตัวเลือกย่อย 'เริม/งูสวัด' ในคำถาม skin_wound"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "phaya-yo-glycerin",
-      "name_th": "ยาพญายอ (กลีเซอรีน)",
-      "type": "single",
-      "route": "external",
-      "symptoms": [
-        "mouth_ulcer"
-      ],
-      "form": "กลีเซอรีน 10 มล.",
-      "dose": "ทาบาง ๆ บริเวณแผลในปาก วันละ 5 ครั้ง",
-      "how_to_take": "ทาในช่องปาก",
-      "timing": "as_needed",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [],
-      "side_effects": [],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/phaya-yo-glycerin.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: เริมในปาก แผลในปาก"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "thong-phan-chang",
-      "name_th": "ยาทิงเจอร์ทองพันชั่ง",
-      "type": "single",
-      "route": "external",
-      "symptoms": [
-        "skin_wound"
-      ],
-      "form": "ทิงเจอร์",
-      "dose": "ทาบริเวณที่เป็น วันละ 2 ครั้ง เช้า-เย็น",
-      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
-      "timing": "as_needed",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [
-        "ห้ามทาบริเวณรอบดวงตา เยื่อบุอ่อน หรือผิวหนังที่มีแผลเปิด"
-      ],
-      "side_effects": [],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/thong-phan-chang.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: กลาก เกลื้อน น้ำกัดเท้า (เชื้อรา) — ควรผูกกับตัวเลือกย่อย 'ผื่นคันจากเชื้อรา'"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "mangosteen-peel",
-      "name_th": "ยาเปลือกมังคุด",
-      "symptoms": [
-        "skin_wound"
-      ],
-      "status": "todo",
-      "notes": [
-        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
-      ],
-      "checked_by": null
-    },
-    {
-      "id": "that-op-choei",
-      "name_th": "ยาธาตุอบเชย",
-      "type": "formula",
-      "route": "oral",
-      "symptoms": [
-        "bloating"
-      ],
-      "form": "ยาน้ำ",
-      "dose": "ครั้งละ 15 มล. วันละ 3 ครั้ง",
-      "how_to_take": "ตามฉลาก",
-      "timing": "as_needed",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "liver",
-          "kidney"
-        ],
-        "meds": [],
-        "flags": []
-      },
-      "cautions": [
-        "ผู้ที่มีปัญหาตับหรือไต ไม่ควรใช้ต่อเนื่อง (การบูรอาจสะสม)"
-      ],
-      "side_effects": [],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/that-op-choei.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 46"
         }
       ],
       "notes": [],
@@ -793,18 +655,21 @@
       "name_th": "ยาขมิ้นชัน",
       "type": "single",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "bloating"
       ],
-      "form": "แคปซูล 450–500 มก.",
-      "dose": "ครั้งละ 1–2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหาร",
+      "form": "แคปซูล / เม็ด",
+      "indication": "บรรเทาอาการแน่นจุกเสียด ท้องอืด ท้องเฟ้อ และอาหารไม่ย่อย (functional dyspepsia)",
+      "dose": "ครั้งละ 500 มก.–1 กรัม วันละ 4 ครั้ง",
+      "how_to_take": "หลังอาหารและก่อนนอน",
       "timing": "after_meal",
       "max_days": null,
       "exclude_if": {
         "pregnant": false,
         "breastfeeding": false,
-        "age_below": 12,
+        "age_below": null,
         "conditions": [
           "bile_duct_obstruction"
         ],
@@ -815,80 +680,273 @@
         "pregnant": true,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [
           "gallstones"
         ],
         "meds": [
           "anticoagulant",
-          "bp_meds"
+          "other_meds"
         ],
-        "flags": []
+        "flags": [],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ในผู้ที่ท่อน้ำดีอุดตัน",
-        "ผู้ป่วยนิ่วในถุงน้ำดี หญิงตั้งครรภ์ ใช้ภายใต้การดูแลของแพทย์เท่านั้น",
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
-        "ไม่ควรใช้รักษาเกิน 1 เดือน"
+        "ห้ามใช้ในผู้ที่ท่อน้ำดีอุดตัน หรือแพ้ยานี้",
+        "ผู้ป่วยนิ่วในถุงน้ำดีและหญิงตั้งครรภ์ ใช้ภายใต้การดูแลของแพทย์เท่านั้น",
+        "หลีกเลี่ยงการใช้ร่วมกับยา warfarin, clopidogrel และ tacrolimus",
+        "ใช้กับอาการอาหารไม่ย่อยไม่เกิน 28 วัน"
       ],
-      "side_effects": [],
-      "see_doctor_if": [
-        "ใช้แล้วอาการไม่ดีขึ้น"
+      "side_effects": [
+        "ผิวหนังอักเสบจากการแพ้"
       ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/khamin-chan.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        },
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 39–40"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khing",
+      "name_th": "ยาขิง",
+      "type": "single",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "bloating"
+      ],
+      "form": "แคปซูล / ชาชง",
+      "indication": "บรรเทาอาการท้องอืด ขับลม แน่นจุกเสียด",
+      "dose": "วันละ 2–4 กรัม (รวมทั้งวัน)",
+      "how_to_take": "ทำตามขนาดบนฉลาก",
+      "timing": "as_label",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": 6,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "gallstones"
+        ],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ผู้ป่วยนิ่วในถุงน้ำดี ใช้ภายใต้การดูแลของแพทย์",
+        "ไม่แนะนำในเด็กอายุต่ำกว่า 6 ขวบ"
+      ],
+      "side_effects": [
+        "แสบร้อนทางเดินอาหาร",
+        "ระคายเคืองปากและคอ"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khing.jpg",
+      "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
-          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 6"
         }
       ],
       "notes": [
-        "สตูล: 1–2 แคปซูล (450 มก.) วันละ 3 ครั้ง · จันทบุรี: 2 แคปซูล (500 มก.) วันละ 3 ครั้งหลังอาหาร — ต้องเลือกตามแหล่งทางการ",
-        "ไม่แนะนำเด็กต่ำกว่า 12 ปี (ไม่มีข้อมูลประสิทธิภาพ)"
+        "ข้อบ่งใช้ป้องกันคลื่นไส้อาเจียนจากเมารถเมาเรือ อยู่ในบัญชีรายการยาเฉพาะ — แอปไม่ได้ใช้"
       ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "that-op-choei",
+      "name_th": "ยาธาตุอบเชย",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "hospital",
+      "symptoms": [
+        "bloating"
+      ],
+      "form": "ยาน้ำ (รพ.)",
+      "indication": "ขับลม บรรเทาอาการท้องอืด ท้องเฟ้อ",
+      "dose": "ครั้งละ 15–30 มล. วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร เช้า กลางวัน เย็น",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "liver",
+          "kidney"
+        ],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ระวังใช้ต่อเนื่องในผู้ที่มีปัญหาตับหรือไต (การบูรอาจสะสมและเกิดพิษ)"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/that-op-choei.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 7"
+        }
+      ],
+      "notes": [],
       "status": "draft",
       "checked_by": null
     },
     {
       "id": "lueang-pit-samut",
       "name_th": "ยาเหลืองปิดสมุทร",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "diarrhea"
       ],
-      "status": "todo",
-      "notes": [
-        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      "form": "ยาเม็ด",
+      "indication": "บรรเทาอาการท้องเสียที่ไม่ได้เกิดจากการติดเชื้อ (อุจจาระไม่มีมูกหรือเลือดปน ไม่มีไข้)",
+      "dose": "ผู้ใหญ่ ครั้งละ 1 กรัม ทุก 3–5 ชั่วโมง เมื่อมีอาการ",
+      "how_to_take": "เมื่อมีอาการ",
+      "timing": "as_needed",
+      "max_days": 1,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ใช้ไม่เกิน 1 วัน ถ้าอาการไม่ดีขึ้นควรปรึกษาแพทย์"
       ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ใช้ 1 วันแล้วไม่ดีขึ้น"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/lueang-pit-samut.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 15"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
       "checked_by": null
     },
     {
       "id": "ya-kluai",
       "name_th": "ยากล้วย",
+      "type": "single",
+      "route": "oral",
+      "account": "basic",
+      "availability": "hospital",
       "symptoms": [
         "diarrhea"
       ],
-      "status": "todo",
-      "notes": [
-        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      "form": "ยาผง (รพ.)",
+      "indication": "บรรเทาอาการท้องเสียที่ไม่ได้เกิดจากการติดเชื้อ",
+      "dose": "ครั้งละ 10 กรัม ชงน้ำร้อน 120–200 มล. วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร เช้า กลางวัน เย็น",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "bowel_obstruction"
+        ],
+        "elderly": false
+      },
+      "cautions": [
+        "ไม่ควรใช้ในผู้ที่ท้องผูก หรือลำไส้อุดตัน",
+        "ใช้ติดต่อกันนานอาจทำให้ท้องอืด"
       ],
+      "side_effects": [
+        "ท้องอืด"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/ya-kluai.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 16"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
       "checked_by": null
     },
     {
       "id": "makham-khaek",
-      "name_th": "ยามะขามแขก (ชาชง)",
+      "name_th": "ยามะขามแขก",
       "type": "single",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "constipation_hemorrhoid"
       ],
-      "form": "ชาชง ซองละ 2 ก.",
-      "dose": "ชง 1 ซอง ในน้ำร้อน 200 มล.",
-      "how_to_take": "ดื่มก่อนนอน",
+      "form": "ชาชง / แคปซูล / เม็ด",
+      "indication": "บรรเทาอาการท้องผูก",
+      "dose": "ชาชง: ครั้งละ 2 กรัม แช่น้ำร้อน 120–200 มล. นาน 10 นาที · แคปซูล/เม็ด: ครั้งละ 800 มก.–1.2 กรัม",
+      "how_to_take": "ก่อนนอน",
       "timing": "bedtime",
       "max_days": null,
       "exclude_if": {
@@ -899,41 +957,96 @@
           "bowel_obstruction"
         ],
         "meds": [],
-        "flags": []
+        "flags": [
+          "unexplained_abdominal_pain"
+        ]
       },
       "caution_if": {
         "pregnant": true,
         "breastfeeding": true,
         "age_below": 12,
-        "elderly": false,
         "conditions": [
           "ibd",
           "kidney"
         ],
         "meds": [],
-        "flags": []
+        "flags": [],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ถ้ามีลำไส้อุดตัน",
-        "ระวังในเด็กต่ำกว่า 12 ปี หญิงตั้งครรภ์และให้นมบุตร ผู้ป่วยลำไส้อักเสบ",
-        "ขนาดสูงอาจทำให้ไตอักเสบ"
+        "ห้ามใช้ถ้าลำไส้อุดตัน หรือปวดท้องโดยไม่ทราบสาเหตุ",
+        "ระวังในหญิงตั้งครรภ์ หญิงให้นมบุตร เด็กต่ำกว่า 12 ปี และผู้ป่วยลำไส้อักเสบ",
+        "ขนาดสูงอาจทำให้ไตอักเสบ",
+        "ไม่ควรใช้ติดต่อกันนาน จะท้องเสีย เสียน้ำและเกลือแร่ และลำไส้จะชินกับยา"
       ],
       "side_effects": [
-        "ปวดบิดท้อง",
+        "ปวดมวนท้อง",
         "ผื่นคัน"
       ],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/makham-khaek.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 15"
         }
       ],
-      "notes": [
-        "ยามะขามแขกแบบแคปซูลมีขนาดต่างจากชาชง ต้องดูตามผลิตภัณฑ์"
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "triphala",
+      "name_th": "ยาตรีผลา",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "constipation_hemorrhoid"
       ],
+      "form": "เม็ด / ลูกกลอน / แคปซูล / ชาชง / ผง",
+      "indication": "เป็นยาระบาย บรรเทาอาการท้องผูก",
+      "dose": "ครั้งละ 1–2 กรัม วันละ 2 ครั้ง (ไม่เกินวันละ 4 กรัม)",
+      "how_to_take": "ทำตามขนาดบนฉลาก",
+      "timing": "as_label",
+      "max_days": 7,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [
+          "anticoagulant",
+          "other_meds"
+        ],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ถ้าต้องใช้เกิน 7 วัน ควรปรึกษาแพทย์แผนไทยหรือบุคลากรทางการแพทย์",
+        "ระวังใช้ร่วมกับยา warfarin, cyclosporine, digoxin และ clopidogrel"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/triphala.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 59"
+        }
+      ],
+      "notes": [],
       "status": "draft",
       "checked_by": null
     },
@@ -942,12 +1055,15 @@
       "name_th": "ยาผสมเพชรสังฆาต",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "constipation_hemorrhoid"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหารทันที",
+      "form": "แคปซูล",
+      "indication": "บรรเทาอาการริดสีดวงทวารหนัก",
+      "dose": "สูตรที่ 1: ครั้งละ 1.2 กรัม วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหารทันที เช้า กลางวัน เย็น",
       "timing": "after_meal",
       "max_days": null,
       "exclude_if": {
@@ -962,30 +1078,31 @@
         "pregnant": true,
         "breastfeeding": true,
         "age_below": null,
-        "elderly": false,
-        "conditions": [],
+        "conditions": [
+          "kidney"
+        ],
         "meds": [],
-        "flags": []
+        "flags": [],
+        "elderly": false
       },
       "cautions": [
-        "ระวังในหญิงตั้งครรภ์และให้นมบุตร"
+        "ระวังในหญิงตั้งครรภ์ หญิงให้นมบุตร และผู้ที่มีภาวะไตบกพร่อง",
+        "เถาเพชรสังฆาตมี oxalate สูง ใช้นานอาจเกิดนิ่วในไต",
+        "ระหว่างรักษาควรงดเหล้า เบียร์ ของหมักดอง อาหารทะเล"
       ],
       "side_effects": [
-        "ท้องเสีย",
-        "ท้องร้องโครกคราก"
+        "ท้องเสีย"
       ],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/phet-sangkhat.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 19"
         }
       ],
-      "notes": [
-        "ข้อบ่งใช้หลัก: ริดสีดวงทวาร"
-      ],
+      "notes": [],
       "status": "draft",
       "checked_by": null
     },
@@ -994,76 +1111,148 @@
       "name_th": "ยามะระขี้นก",
       "type": "single",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
-        "poor_appetite"
+        "poor_appetite",
+        "fever"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 1 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหาร",
-      "timing": "after_meal",
-      "max_days": null,
+      "form": "แคปซูล / เม็ด / ชาชง",
+      "indication": "แก้ไข้ แก้ร้อนใน เจริญอาหาร",
+      "dose": "แคปซูล/เม็ด: ครั้งละ 500 มก.–1 กรัม วันละ 3 ครั้ง · ชาชง: ครั้งละ 1–2 กรัม",
+      "how_to_take": "ก่อนอาหาร เช้า กลางวัน เย็น",
+      "timing": "before_meal",
+      "max_days": 3,
       "exclude_if": {
         "pregnant": false,
         "breastfeeding": true,
         "age_below": 12,
         "conditions": [],
         "meds": [],
-        "flags": [
-          "suspected_dengue"
-        ]
+        "flags": []
       },
       "caution_if": {
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
-        "conditions": [],
+        "conditions": [
+          "liver"
+        ],
         "meds": [
           "diabetes_meds"
         ],
-        "flags": []
+        "flags": [
+          "suspected_dengue"
+        ],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ในเด็กและหญิงให้นมบุตร (มีรายงานน้ำตาลในเลือดต่ำจนชักในเด็ก)",
+        "ห้ามใช้ในเด็กและหญิงให้นมบุตร (น้ำตาลในเลือดอาจลดลงมากจนชัก)",
+        "ระวังใช้ร่วมกับยาเบาหวานหรืออินซูลิน",
         "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
-        "เสริมฤทธิ์ยาเบาหวาน อาจทำให้น้ำตาลต่ำ"
+        "ระวังในผู้ป่วยโรคตับ",
+        "ใช้เกิน 3 วันแล้วไม่ดีขึ้น ควรปรึกษาแพทย์"
       ],
       "side_effects": [
-        "คลื่นไส้",
-        "เวียนหัว",
+        "คลื่นไส้ วิงเวียน",
         "ชาปลายมือปลายเท้า",
-        "ท้องเสีย",
-        "ปวดหัว"
+        "ท้องเดิน ท้องอืด",
+        "ปวดศีรษะ"
       ],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/mara-khinok.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 30"
         }
       ],
-      "notes": [
-        "age_below 12 ตั้งไว้เพราะที่มาระบุ 'เด็ก' โดยไม่บอกอายุ"
-      ],
+      "notes": [],
       "status": "draft",
-      "checked_by": null
+      "checked_by": null,
+      "app_policy": [
+        "exclude_if.age_below 12: บัญชีเขียนว่า 'เด็ก' โดยไม่ระบุอายุ"
+      ]
+    },
+    {
+      "id": "hom-thep-pajit",
+      "name_th": "ยาหอมเทพจิตร",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "dizziness"
+      ],
+      "form": "ยาผง / ยาเม็ด",
+      "indication": "แก้ลมกองละเอียด: หน้ามืด ตาลาย สวิงสวาย ใจสั่น",
+      "dose": "ครั้งละ 1–1.4 กรัม ทุก 3–4 ชั่วโมง เมื่อมีอาการ (ไม่เกินวันละ 3 ครั้ง)",
+      "how_to_take": "ละลายน้ำต้มสุกที่ยังอุ่นอยู่",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "liver",
+          "kidney"
+        ],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": [
+          "pollen_allergy"
+        ],
+        "elderly": false
+      },
+      "cautions": [
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ระวังใช้ต่อเนื่องในผู้ที่มีปัญหาตับหรือไต (การบูรอาจสะสม)",
+        "ระวังในผู้ที่แพ้ละอองเกสรดอกไม้"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/hom-thep-pajit.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 1"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null,
+      "app_policy": [
+        "exclude_if.pregnant: ไม่มีในบัญชี — นโยบายแอปไม่แนะนำยาหอมที่มีการบูรในหญิงตั้งครรภ์"
+      ]
     },
     {
       "id": "hom-nawakot",
       "name_th": "ยาหอมนวโกฐ",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "dizziness",
-        "nausea",
-        "insomnia"
+        "nausea"
       ],
-      "form": "ยาผง",
-      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร",
-      "timing": "before_meal",
+      "form": "ยาผง / ยาเม็ด",
+      "indication": "แก้ลมวิงเวียน คลื่นเหียน อาเจียนในผู้สูงอายุ และอาการหลังฟื้นไข้",
+      "dose": "ครั้งละ 1–2 กรัม ทุก 3–4 ชั่วโมง เมื่อมีอาการ (ไม่เกินวันละ 3 ครั้ง)",
+      "how_to_take": "ละลายน้ำต้มสุกที่ยังอุ่นอยู่",
+      "timing": "as_needed",
       "max_days": null,
       "exclude_if": {
         "pregnant": true,
@@ -1079,176 +1268,53 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [],
         "meds": [
           "anticoagulant"
         ],
         "flags": [
           "pollen_allergy"
-        ]
+        ],
+        "elderly": false
       },
       "cautions": [
         "ห้ามใช้ในหญิงตั้งครรภ์และผู้ที่มีไข้",
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด และผู้ที่แพ้เกสรดอกไม้"
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ระวังในผู้ที่แพ้ละอองเกสรดอกไม้"
       ],
       "side_effects": [],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/hom-nawakot.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 3"
         }
       ],
-      "notes": [
-        "ที่มาระบุข้อบ่งใช้รวม 'แน่นหน้าอกจากโรคหัวใจ' ด้วย — แอปไม่ควรแนะนำสำหรับอาการหัวใจ (S8 ส่งไปโรงพยาบาลแล้ว)"
-      ],
+      "notes": [],
       "status": "draft",
       "checked_by": null
     },
     {
-      "id": "khing-capsule",
-      "name_th": "ยาขิง (แคปซูล)",
-      "type": "single",
-      "route": "oral",
-      "symptoms": [
-        "bloating",
-        "nausea"
-      ],
-      "form": "แคปซูล 450–500 มก.",
-      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหาร",
-      "timing": "after_meal",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": 6,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "gallstones"
-        ],
-        "meds": [
-          "anticoagulant"
-        ],
-        "flags": []
-      },
-      "cautions": [
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
-        "ผู้ป่วยนิ่วในถุงน้ำดีควรใช้ภายใต้การดูแลของแพทย์"
-      ],
-      "side_effects": [
-        "แสบร้อนท้อง",
-        "ระคายเคืองปากและคอ"
-      ],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/khing-capsule.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        },
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
-          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
-        }
-      ],
-      "notes": [
-        "สตูล: หลังอาหาร · จันทบุรี: ก่อนอาหาร — ต้องตรวจกับแหล่งทางการ",
-        "จันทบุรี: ไม่แนะนำเด็กต่ำกว่า 6 ปี"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "khing-tea",
-      "name_th": "ยาขิง (ชาชง)",
-      "type": "single",
-      "route": "oral",
-      "symptoms": [
-        "dizziness",
-        "nausea"
-      ],
-      "form": "ชาชง ซองละ 2 ก.",
-      "dose": "ชง 1 ซอง ในน้ำร้อน 100 มล. วันละ 3 ครั้ง",
-      "how_to_take": "หลังอาหาร",
-      "timing": "after_meal",
-      "max_days": null,
-      "exclude_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": 6,
-        "conditions": [],
-        "meds": [],
-        "flags": []
-      },
-      "caution_if": {
-        "pregnant": false,
-        "breastfeeding": false,
-        "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "gallstones"
-        ],
-        "meds": [
-          "anticoagulant"
-        ],
-        "flags": []
-      },
-      "cautions": [
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
-        "ผู้ป่วยนิ่วในถุงน้ำดีควรใช้ภายใต้การดูแลของแพทย์"
-      ],
-      "side_effects": [
-        "แสบร้อนท้อง",
-        "ระคายเคืองปากและคอ"
-      ],
-      "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/khing-tea.jpg",
-      "sources": [
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
-        },
-        {
-          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
-          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
-        }
-      ],
-      "notes": [
-        "ข้อบ่งใช้: เวียนหัว คลื่นไส้ อาเจียน เมารถเมาเรือ"
-      ],
-      "status": "draft",
-      "checked_by": null
-    },
-    {
-      "id": "hom-thep-pajit",
-      "name_th": "ยาหอมเทพจิตร",
+      "id": "hom-kae-lom-wingwian",
+      "name_th": "ยาหอมแก้ลมวิงเวียน",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "hospital",
       "symptoms": [
         "dizziness",
-        "bloating"
+        "insomnia"
       ],
-      "form": "ยาผง",
-      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร",
-      "timing": "before_meal",
+      "form": "ยาผง / ยาเม็ด (รพ.)",
+      "indication": "แก้ลมวิงเวียน อ่อนเพลีย นอนไม่หลับ",
+      "dose": "ครั้งละ 600 มก.–1 กรัม ทุก 3–4 ชั่วโมง เมื่อมีอาการ (ไม่เกินวันละ 3 ครั้ง)",
+      "how_to_take": "ละลายน้ำต้มสุกที่ยังอุ่นอยู่",
+      "timing": "as_needed",
       "max_days": null,
       "exclude_if": {
-        "pregnant": true,
+        "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
         "conditions": [],
@@ -1259,47 +1325,259 @@
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [],
         "meds": [
           "anticoagulant"
         ],
         "flags": [
           "pollen_allergy"
-        ]
+        ],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ในหญิงตั้งครรภ์",
-        "ระวังในผู้ที่กินยาละลายลิ่มเลือด และผู้ที่แพ้เกสรดอกไม้"
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ระวังในผู้ที่มีประวัติแพ้เกสรดอกไม้"
       ],
       "side_effects": [],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/hom-thep-pajit.jpg",
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/hom-kae-lom-wingwian.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 1"
         }
       ],
-      "notes": [
-        "ที่มาระบุข้อบ่งใช้: เวียนหัว ท้องอืด — โปสเตอร์จัดไว้ในกลุ่มนอนไม่หลับ ต้องตรวจกับแหล่งทางการก่อนผูกกับ insomnia"
-      ],
+      "notes": [],
       "status": "draft",
       "checked_by": null
     },
     {
-      "id": "ha-rak",
-      "name_th": "ยาห้าราก",
+      "id": "phaya-yo-lotion",
+      "name_th": "ยาพญายอ (โลชัน)",
+      "type": "single",
+      "route": "external",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "form": "ยาโลชัน",
+      "indication": "บรรเทาอาการผดผื่นคัน ลมพิษ ตุ่มคัน",
+      "dose": "ทาบริเวณที่มีอาการ วันละ 5 ครั้ง",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/phaya-yo-lotion.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 56"
+        }
+      ],
+      "notes": [
+        "ยาขี้ผึ้งพญายอ (รพ.) ใช้บรรเทาอักเสบ ปวด บวมจากแมลงกัดต่อย",
+        "ยาครีมพญายอใช้กับเริมและงูสวัด — แชทยังไม่มีตัวเลือกนี้"
+      ],
+      "status": "draft",
+      "checked_by": null,
+      "skin_types": [
+        "itch_bite"
+      ]
+    },
+    {
+      "id": "mangosteen-peel",
+      "name_th": "ยาเปลือกมังคุด",
+      "type": "single",
+      "route": "external",
+      "account": "basic",
+      "availability": "hospital",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "form": "ยาน้ำใส (รพ.)",
+      "indication": "ทาแผลสด และแผลเรื้อรัง",
+      "dose": "ทาบริเวณแผล วันละ 2 ครั้ง เช้า–เย็น",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามทาบริเวณขอบตาและเนื้อเยื่ออ่อน"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/mangosteen-peel.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 54"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null,
+      "skin_types": [
+        "scrape"
+      ]
+    },
+    {
+      "id": "thong-phan-chang",
+      "name_th": "ยาทิงเจอร์ทองพันชั่ง",
+      "type": "single",
+      "route": "external",
+      "account": "basic",
+      "availability": "hospital",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "form": "ยาทิงเจอร์ (รพ.)",
+      "indication": "ทาแก้กลากเกลื้อน โรคผิวหนังจากเชื้อรา น้ำกัดเท้า",
+      "dose": "ทาวันละ 2 ครั้ง เช้า–เย็น จนหาย แล้วทาต่ออีกอย่างน้อย 2 สัปดาห์",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "open_wound"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [
+        "ห้ามทาบริเวณขอบตาและเนื้อเยื่ออ่อน",
+        "ห้ามทาบริเวณผิวหนังที่มีบาดแผลหรือแผลเปิด"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ยานี้ผลิตโดยโรงพยาบาล ไม่มีขายตามร้านทั่วไป ขอรับได้ที่ รพ.สต. หรือโรงพยาบาลใกล้บ้าน",
+      "image": "/herbs/thong-phan-chang.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 55"
+        }
+      ],
+      "notes": [
+        "แชทยังไม่มีตัวเลือก 'ผื่นจากเชื้อรา' จึงยังไม่แนะนำ (skin_types ว่าง)"
+      ],
+      "status": "draft",
+      "checked_by": null,
+      "skin_types": []
+    },
+    {
+      "id": "phaya-yo-mouth",
+      "name_th": "ยาพญายอ (สารละลายป้ายปาก)",
+      "type": "single",
+      "route": "external",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "mouth_ulcer"
+      ],
+      "form": "สารละลายสำหรับป้ายปาก",
+      "indication": "รักษาแผลในปาก แผลจากการฉายรังสีและเคมีบำบัด",
+      "dose": "ทาบริเวณที่มีอาการ วันละ 5 ครั้ง",
+      "how_to_take": "ป้ายในช่องปาก",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [],
+        "elderly": false
+      },
+      "cautions": [],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/phaya-yo-mouth.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 56"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khiao-hom",
+      "name_th": "ยาเขียวหอม",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "fever"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 3 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร",
-      "timing": "before_meal",
+      "form": "ยาผง",
+      "indication": "บรรเทาอาการไข้ ร้อนในกระหายน้ำ ไข้จากหัดและอีสุกอีใส",
+      "dose": "ผู้ใหญ่ ครั้งละ 1 กรัม ทุก 4–6 ชั่วโมง เมื่อมีอาการ",
+      "how_to_take": "ละลายน้ำต้มสุกที่ยังอุ่นอยู่ หรือน้ำดอกมะลิ",
+      "timing": "as_needed",
       "max_days": 3,
       "exclude_if": {
         "pregnant": false,
@@ -1307,34 +1585,33 @@
         "age_below": null,
         "conditions": [],
         "meds": [],
-        "flags": [
-          "suspected_dengue",
-          "menstruating"
-        ]
+        "flags": []
       },
       "caution_if": {
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [],
         "meds": [],
-        "flags": []
+        "flags": [
+          "pollen_allergy",
+          "suspected_dengue"
+        ],
+        "elderly": false
       },
       "cautions": [
+        "ระวังในผู้ที่แพ้ละอองเกสรดอกไม้",
         "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
-        "ไม่แนะนำสำหรับไข้ช่วงมีประจำเดือน"
+        "ใช้เกิน 3 วันแล้วไม่ดีขึ้น ควรปรึกษาแพทย์"
       ],
       "side_effects": [],
-      "see_doctor_if": [
-        "ไข้ไม่ลดภายใน 3 วัน"
-      ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/ha-rak.jpg",
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khiao-hom.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 27"
         }
       ],
       "notes": [],
@@ -1343,14 +1620,17 @@
     },
     {
       "id": "chan-lila",
-      "name_th": "ยาจันทน์ลีลา",
+      "name_th": "ยาจันทลีลา",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
         "fever"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 2 แคปซูล ทุก 4 ชั่วโมง เมื่อมีอาการ",
+      "form": "แคปซูล / ผง / เม็ด",
+      "indication": "บรรเทาอาการไข้ตัวร้อน ไข้เปลี่ยนฤดู",
+      "dose": "ผู้ใหญ่ ครั้งละ 1–2 กรัม ทุก 3–4 ชั่วโมง เมื่อมีอาการ",
       "how_to_take": "เมื่อมีอาการ",
       "timing": "as_needed",
       "max_days": 3,
@@ -1360,91 +1640,88 @@
         "age_below": null,
         "conditions": [],
         "meds": [],
-        "flags": [
-          "suspected_dengue"
-        ]
+        "flags": []
       },
       "caution_if": {
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
         "conditions": [],
         "meds": [],
-        "flags": []
+        "flags": [
+          "suspected_dengue"
+        ],
+        "elderly": false
       },
       "cautions": [
         "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
-        "ใช้กับไข้ช่วงมีประจำเดือนได้"
+        "ใช้เกิน 3 วันแล้วไม่ดีขึ้น ควรปรึกษาแพทย์"
       ],
       "side_effects": [],
-      "see_doctor_if": [
-        "ไข้ไม่ลดภายใน 3 วัน"
-      ],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
       "image": "/herbs/chan-lila.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 28"
         }
       ],
       "notes": [
-        "ข้อบ่งใช้: ไข้ ไข้ตัวร้อน ร่วมกับปวดเมื่อย"
+        "ใช้ได้ในหญิงที่มีไข้ระหว่างมีประจำเดือน"
       ],
       "status": "draft",
       "checked_by": null
     },
     {
-      "id": "prasa-plai",
-      "name_th": "ยาประสะไพล",
+      "id": "ha-rak",
+      "name_th": "ยาห้าราก",
       "type": "formula",
       "route": "oral",
+      "account": "basic",
+      "availability": "shop",
       "symptoms": [
-        "menstrual_pain"
+        "fever"
       ],
-      "form": "แคปซูล 450 มก.",
-      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
-      "how_to_take": "ก่อนอาหาร",
+      "form": "ผง / แคปซูล / เม็ด",
+      "indication": "บรรเทาอาการไข้ กระทุ้งพิษไข้",
+      "dose": "ผู้ใหญ่ ครั้งละ 1–1.5 กรัม วันละ 3 ครั้ง เมื่อมีอาการ",
+      "how_to_take": "ก่อนอาหาร เช้า กลางวัน เย็น",
       "timing": "before_meal",
-      "max_days": null,
+      "max_days": 3,
       "exclude_if": {
-        "pregnant": true,
+        "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
         "conditions": [],
         "meds": [],
-        "flags": [
-          "fever",
-          "heavy_menstruation",
-          "postpartum_bleeding"
-        ]
+        "flags": []
       },
       "caution_if": {
         "pregnant": false,
         "breastfeeding": false,
         "age_below": null,
-        "elderly": false,
-        "conditions": [
-          "liver",
-          "kidney"
-        ],
+        "conditions": [],
         "meds": [],
-        "flags": []
+        "flags": [
+          "suspected_dengue",
+          "menstruating"
+        ],
+        "elderly": false
       },
       "cautions": [
-        "ห้ามใช้ในหญิงตั้งครรภ์ ผู้ที่มีไข้ หรือประจำเดือนมามากกว่าปกติ",
-        "ปวดประจำเดือน: เริ่มกินก่อนมีประจำเดือน 2–3 วัน จนถึงวันที่ 2 ของประจำเดือน",
-        "ผู้ที่มีปัญหาตับหรือไตไม่ควรใช้ต่อเนื่อง"
+        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
+        "ไม่แนะนำในหญิงที่มีไข้ระหว่างมีประจำเดือน",
+        "ใช้เกิน 3 วันแล้วไม่ดีขึ้น ควรปรึกษาแพทย์"
       ],
       "side_effects": [],
       "see_doctor_if": [],
-      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
-      "image": "/herbs/prasa-plai.jpg",
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/ha-rak.jpg",
       "sources": [
         {
-          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
-          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 40–41"
         }
       ],
       "notes": [],

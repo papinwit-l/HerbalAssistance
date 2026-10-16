@@ -248,6 +248,7 @@ export const STEPS: { [K in StepId]: StepDef } = {
       options: [
         flag("cough_blood", "ไอเป็นเลือด"),
         flag("cannot_swallow", "เจ็บคอมากจนกลืนน้ำไม่ได้"),
+        flag("throat_pus", "มีตุ่มหนองในคอ ไข้สูง หนาวสั่น"),
       ],
     },
   },
@@ -363,7 +364,7 @@ export const STEPS: { [K in StepId]: StepDef } = {
       options: [
         flag("infected", "แผลลึก มีหนอง หรือบวมแดงลามออก"),
         flag("animal_bite", "ถูกสัตว์กัด"),
-        flag("large_burn", "แผลไฟไหม้ใหญ่"),
+        flag("large_burn", "แผลไฟไหม้ใหญ่กว่าฝ่ามือ หรืออยู่ที่หน้า มือ เท้า ข้อพับ"),
       ],
     },
   },

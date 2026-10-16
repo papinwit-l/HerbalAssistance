@@ -13,19 +13,27 @@ const Restriction = z.object({
   flags: z.array(z.string()),
 });
 
-const Source = z.object({ name: z.string().min(1), url: z.string().optional() });
+/** Where the entry comes from. `page` lets the data team check it against the PDF. */
+const Source = z.object({ name: z.string().min(1), page: z.string().optional(), url: z.string().optional() });
 
-/** An entry with full data ("draft" from a provincial source, or "verified"). */
+/** An entry with full data ("draft" until the data team checks the cited page, then "verified"). */
 const FullHerbSchema = z.object({
   id: z.string().min(1),
   name_th: z.string().min(1),
   type: z.enum(["single", "formula"]),
   route: z.enum(["oral", "external"]),
+  /** Only the basic list (บัญชีรายการยาพื้นฐาน) is self-care; specific-list herbs need a prescriber. */
+  account: z.literal("basic"),
+  /** shop = sold with a registration number; hospital = (รพ.) form made by hospitals only. */
+  availability: z.enum(["shop", "hospital"]),
   symptoms: z.array(z.string()).min(1),
   form: z.string(),
+  /** ข้อบ่งใช้ as written in the list. */
+  indication: z.string().min(1),
   dose: z.string().min(1),
   how_to_take: z.string(),
-  timing: z.enum(["before_meal", "after_meal", "bedtime", "as_needed"]),
+  timing: z.enum(["before_meal", "after_meal", "bedtime", "as_needed", "as_label"]),
+  /** Use up to this many days; if not better, see a doctor. Not a limit on how long the illness has lasted. */
   max_days: z.number().int().positive().nullable(),
   /** Contraindication: always remove. */
   exclude_if: Restriction,
@@ -38,6 +46,8 @@ const FullHerbSchema = z.object({
   image: z.string(),
   sources: z.array(Source).min(1),
   notes: z.array(z.string()),
+  /** Rules the app adds on top of the list (stricter than the source). Shown to the data team, not users. */
+  app_policy: z.array(z.string()).optional(),
   /** skin_wound only: which S10 skin types this herb is for. Missing → never offered for skin. */
   skin_types: z.array(z.enum(["itch_bite", "scrape", "small_burn"])).optional(),
   status: z.enum(["draft", "verified"]),

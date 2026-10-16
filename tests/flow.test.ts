@@ -187,6 +187,17 @@ describe("stops", () => {
     expect(outcome(s)).toEqual({ kind: "refer", reason: "ไอเป็นเลือด" });
   });
 
+  it("sore throat with pus, high fever, chills → REFER (ฟ้าทะลายโจร contraindication)", () => {
+    const s = run([
+      ...GUEST_MAN,
+      symptom("cough_sore_throat"),
+      ["danger", []],
+      ["duration", 1],
+      ["resp_flags", ["throat_pus"]],
+    ]);
+    expect(outcome(s)).toEqual({ kind: "refer", reason: "มีตุ่มหนองในคอ ไข้สูง หนาวสั่น" });
+  });
+
   it("dizziness: sudden headache → RED FLAG, beats fainting → REFER", () => {
     const base: Step[] = [...GUEST_MAN, symptom("dizziness"), ["danger", []], ["duration", 1]];
     expect(outcome(run([...base, ["dizziness_flags", ["fainting"]]])).kind).toBe("refer");

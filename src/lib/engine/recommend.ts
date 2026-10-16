@@ -8,18 +8,18 @@
      4. skin_wound: must list the chosen skin type         — silent
      5. exclude_if  → removed, reason shown                — "ไม่แนะนำ … เพราะ …"
         caution_if  → removed too (app policy for villager self-care)
-        max_days already passed for the reported duration → removed
      6. what the chat never asks (fever, peptic ulcer, …) → kept, listed on the
         card as "ห้ามใช้ถ้า…" so the user checks it themselves. */
 
-import type { Condition, Duration, Facts, Med } from "@/lib/chat/types";
+import type { Condition, Facts, Med } from "@/lib/chat/types";
 import { HERBS, type Herb } from "./herbs";
 
 export interface Recommended {
   herb: Herb;
   /** Things the chat didn't ask that rule this herb out: "ห้ามใช้ถ้า …". */
   checkFirst: string[];
-  /** The reported duration reaches the herb's max_days: say "see a doctor if not better". */
+  /** The user has been ill about as long as max_days already: stress "see a doctor if not better".
+      (max_days is how long to use the herb, so a long illness does not rule the herb out.) */
   nearMaxDays: boolean;
 }
 
@@ -41,13 +41,17 @@ export interface Recommendation {
 export const UNSURE_MEDS_MATCH_ALL = true;
 
 /** Asked conditions that also cover a narrower condition or flag code in herbs.json.
-    "โรคหัวใจ" may be rheumatic heart disease; "ภูมิแพ้" counts as pollen allergy.
-    Codes covered here are asked, so they no longer appear as "ห้ามใช้ถ้า…". */
+    "โรคหัวใจ" may be rheumatic heart disease; "ภูมิแพ้" counts as pollen allergy. */
 const CONDITION_IMPLIES: Partial<Record<Condition, string[]>> = {
   heart: ["rheumatic_heart"],
   allergy: ["pollen_allergy"],
 };
-const COVERED = new Set(Object.values(CONDITION_IMPLIES).flat());
+
+/** Codes the chat fully asks, so they never need a "ห้ามใช้ถ้า…" line:
+    pollen allergy (= ภูมิแพ้ at S5) and pus/high fever/chills in the throat
+    (a resp_flags answer that sends the user to a doctor before any card).
+    Rheumatic heart stays on the card: someone may have had it without calling it "โรคหัวใจ". */
+const COVERED = new Set(["pollen_allergy", "severe_bacterial_throat"]);
 
 /* ─── Thai wording ─── */
 
@@ -76,11 +80,19 @@ export const UNASKED_LABEL: Record<string, string> = {
   // conditions
   peptic_ulcer: "เป็นโรคกระเพาะ / แผลในกระเพาะอาหาร",
   rheumatic_heart: "เคยเป็นโรคหัวใจรูมาติก",
+  post_strep_nephritis: "เคยเป็นไตอักเสบหลังติดเชื้อสเตรปโตคอคคัส",
+  gerd: "เป็นกรดไหลย้อน",
   bile_duct_obstruction: "ท่อน้ำดีอุดตัน",
   bowel_obstruction: "ลำไส้อุดตัน",
   ibd: "ลำไส้อักเสบ",
   // flags
   fever: "มีไข้",
+  strep_throat: "เจ็บคอจากเชื้อสเตรปโตคอคคัส (แพทย์บอก)",
+  severe_bacterial_throat: "มีตุ่มหนองในคอ ไข้สูง หนาวสั่น",
+  rhinitis_complication: "มีไซนัสอักเสบ น้ำมูกหรือเสมหะเขียว",
+  unexplained_abdominal_pain: "ปวดท้องโดยไม่ทราบสาเหตุ",
+  diarrhea_prone: "ท้องเสียง่าย",
+  broken_skin: "ผิวหนังแตก",
   suspected_dengue: "สงสัยไข้เลือดออก",
   pollen_allergy: "แพ้เกสรดอกไม้",
   capsaicin_allergy: "แพ้พริก",
@@ -90,15 +102,6 @@ export const UNASKED_LABEL: Record<string, string> = {
   open_wound: "มีแผลเปิดบริเวณนั้น",
   acute_inflammation_24h: "บวม แดง ร้อน ภายใน 24 ชั่วโมงแรก",
 };
-
-const DURATION_LABEL: Record<Duration, string> = {
-  1: "ไม่เกิน 1 วัน",
-  3: "2–3 วัน",
-  7: "4–7 วัน",
-  8: "มากกว่า 1 สัปดาห์",
-};
-/** Fewest days each S9 answer can mean. */
-const DURATION_MIN: Record<Duration, number> = { 1: 0, 3: 2, 7: 4, 8: 8 };
 
 /* ─── Engine ─── */
 
@@ -164,10 +167,6 @@ function safetyReasons(herb: Herb, f: Facts): string[] {
     const hit =
       herbMeds.includes(m) || (m === "unsure_meds" && UNSURE_MEDS_MATCH_ALL && herbMeds.length > 0);
     if (hit) add(MED_REASON[m]);
-  }
-
-  if (herb.max_days !== null && DURATION_MIN[f.durationDays] >= herb.max_days) {
-    add(`เป็นมาแล้ว ${DURATION_LABEL[f.durationDays]} เกินที่ยานี้แนะนำ (ใช้ไม่เกิน ${herb.max_days} วัน)`);
   }
 
   return reasons;
