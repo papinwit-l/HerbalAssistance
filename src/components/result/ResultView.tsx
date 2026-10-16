@@ -29,7 +29,7 @@ export default function ResultView({ facts, notes }: { facts: Facts; notes: Note
 
   return (
     <div className="flex flex-col gap-4">
-      <PersonaBubbles bubbles={[summary]} />
+      <PersonaBubbles bubbles={[summary]} mood={recommended.length > 0 ? "turmeric" : "concerned"} />
 
       {firstAid && (
         <section className="flex flex-col gap-2 rounded-md bg-surface-raised p-4 shadow-card">

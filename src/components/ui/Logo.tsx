@@ -26,16 +26,21 @@ export default function Logo({
   );
 }
 
-/* Persona avatar until น้องขมิ้น's character art exists: the logo in a light circle,
-   so the colour version stays readable on the green header. */
-export function Avatar({ size = 40 }: { size?: number }) {
+export type Mood = "happy" | "wave" | "concerned" | "turmeric";
+
+/* น้องขมิ้น (public/persona, cropped from the persona sheets).
+   happy = default · wave = welcome · concerned = refer / nothing to recommend · turmeric = herbs found.
+   Decorative: her name or words are always written next to her. */
+export function Avatar({ size = 40, mood = "happy" }: { size?: number; mood?: Mood }) {
   return (
-    <span
+    <Image
+      src={`/persona/${mood}.webp`}
+      width={size}
+      height={size}
+      alt=""
       aria-hidden
-      className="flex shrink-0 items-center justify-center rounded-pill bg-surface"
+      className="shrink-0 rounded-pill bg-surface"
       style={{ width: size, height: size }}
-    >
-      <Logo size={Math.round(size * 0.78)} />
-    </span>
+    />
   );
 }
