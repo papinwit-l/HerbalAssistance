@@ -242,6 +242,11 @@ describe("group-specific rules", () => {
     expect(outcome(covid("positive", "adult", ["diabetes"])).kind).toBe("refer");
   });
 
+  it("covid positive + asthma (chronic lung disease) → REFER; ภูมิแพ้ alone is not a risk group", () => {
+    expect(outcome(covid("positive", "adult", ["asthma"])).kind).toBe("refer");
+    expect(nextStep(covid("positive", "adult", ["allergy"]))).toBe("resp_flags");
+  });
+
   it("covid positive, not risk group (allergy history alone doesn't count) → keeps going as covid", () => {
     const s = covid("positive", "adult", ["allergy_history"]);
     expect(nextStep(s)).toBe("resp_flags");

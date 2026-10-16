@@ -160,7 +160,9 @@ export const STEPS: { [K in StepId]: StepDef } = {
         { value: "liver", label: "โรคตับ" },
         { value: "heart", label: "โรคหัวใจ" },
         { value: "gallstones", label: "นิ่วในถุงน้ำดี" },
-        { value: "allergy_history", label: "เคยแพ้ยาหรือสมุนไพร", effect: note("allergy_history") },
+        { value: "asthma", label: "หอบหืด" },
+        { value: "allergy", label: "ภูมิแพ้ / แพ้เกสรดอกไม้" },
+        { value: "allergy_history", label: "เคยแพ้ยา สมุนไพร หรือยาทา", effect: note("allergy_history") },
       ],
     },
   },
@@ -385,7 +387,7 @@ export const GROUP_STEPS: Record<SymptomCode, StepId[]> = {
 
 export const NOTE_TEXT: Record<NoteCode, string> = {
   pregnancy_unsure: "ถ้าไม่แน่ใจว่าตั้งครรภ์ ควรตรวจก่อนใช้ยานะคะ",
-  allergy_history: "เคยแพ้ยา/สมุนไพร ควรให้เภสัชกรตรวจสอบก่อนใช้นะคะ",
+  allergy_history: "เคยแพ้ยา สมุนไพร หรือยาทา ควรให้เภสัชกรตรวจสอบก่อนใช้นะคะ",
   show_meds: "นำยาที่กินอยู่ไปให้เภสัชกรดูก่อนใช้สมุนไพรนะคะ",
   ors: "ดื่มน้ำเกลือแร่ (ORS) บ่อยๆ นะคะ",
   atk_advice: "ควรตรวจ ATK เพื่อยืนยันผลนะคะ",

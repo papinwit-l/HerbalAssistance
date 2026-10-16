@@ -115,6 +115,23 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["เป็นโรคหัวใจ"]);
   });
 
+  it("ภูมิแพ้ counts as pollen allergy: herbs that warn about it are excluded", () => {
+    const r = recommend(facts({ conditions: ["allergy"], symptom: "dizziness" }));
+    expect(ids(r.recommended)).toEqual(["khing-tea"]);
+    expect(reasonsFor(r, "hom-nawakot")).toEqual(["เป็นภูมิแพ้"]);
+    expect(reasonsFor(r, "hom-thep-pajit")).toEqual(["เป็นภูมิแพ้"]);
+  });
+
+  it("pollen allergy is asked now, so it's no longer a ห้ามใช้ถ้า… line", () => {
+    const r = recommend(facts({ symptom: "dizziness" }));
+    const hom = r.recommended.find((x) => x.herb.id === "hom-nawakot")!;
+    expect(hom.checkFirst).toEqual(["มีไข้"]);
+  });
+
+  it("asthma changes no herb today (no rule in herbs.json yet)", () => {
+    expect(recommend(facts({ conditions: ["asthma"] }))).toEqual(recommend(facts()));
+  });
+
   it("several reasons are all listed, in one sentence", () => {
     const r = recommend(facts({ sex: "female", pregnant: true, meds: ["bp_meds"] }));
     const e = r.excluded.find((x) => x.herb.id === "fah-talai-jone")!;

@@ -28,6 +28,10 @@ export const CONDITIONS = [
   "liver",
   "heart",
   "gallstones",
+  "asthma",
+  /** ภูมิแพ้ — treated as pollen allergy by the engine (safe default). */
+  "allergy",
+  /** เคยแพ้ยา สมุนไพร หรือยาทา — a past reaction, not a disease: adds a pharmacist note. */
   "allergy_history",
 ] as const;
 export type Condition = (typeof CONDITIONS)[number];

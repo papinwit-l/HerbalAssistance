@@ -184,7 +184,7 @@ export function resolve(state: ChatState, ctx: FlowContext = {}): Resolution {
 
     if (step === "covid_atk") {
       const riskGroup =
-        ageGroup === "elderly" || conditions.some((c) => c !== "allergy_history");
+        ageGroup === "elderly" || conditions.some((c) => !COVID_NOT_RISK.includes(c));
       if (value === "positive" && riskGroup) {
         return end({ kind: "refer", reason: REFER_TEXT.covidRisk });
       }
@@ -292,6 +292,10 @@ export function ageGroupFromBirthdate(birthdate: string, today: Date): AgeGroup 
 }
 
 /* ───────────────────────── internals ───────────────────────── */
+
+/** Conditions that do NOT put a covid-positive user in the risk group.
+    Everything else (incl. asthma — chronic lung disease) refers. Check against MOPH. */
+const COVID_NOT_RISK: readonly Condition[] = ["allergy", "allergy_history"];
 
 /** Rough position for the progress bar. */
 const PROGRESS: Record<StepId, number> = {

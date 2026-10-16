@@ -40,11 +40,14 @@ export interface Recommendation {
     pregnancy "ไม่แน่ใจ" → pregnant: when unsure, play safe. */
 export const UNSURE_MEDS_MATCH_ALL = true;
 
-/** Asked conditions that also cover a narrower code used in herbs.json.
-    "โรคหัวใจ" may be rheumatic heart disease, so it rules out those herbs too. */
+/** Asked conditions that also cover a narrower condition or flag code in herbs.json.
+    "โรคหัวใจ" may be rheumatic heart disease; "ภูมิแพ้" counts as pollen allergy.
+    Codes covered here are asked, so they no longer appear as "ห้ามใช้ถ้า…". */
 const CONDITION_IMPLIES: Partial<Record<Condition, string[]>> = {
   heart: ["rheumatic_heart"],
+  allergy: ["pollen_allergy"],
 };
+const COVERED = new Set(Object.values(CONDITION_IMPLIES).flat());
 
 /* ─── Thai wording ─── */
 
@@ -55,7 +58,9 @@ const CONDITION_REASON: Record<Condition, string> = {
   liver: "เป็นโรคตับ",
   heart: "เป็นโรคหัวใจ",
   gallstones: "เป็นนิ่วในถุงน้ำดี",
-  allergy_history: "เคยแพ้ยาหรือสมุนไพร",
+  asthma: "เป็นหอบหืด",
+  allergy: "เป็นภูมิแพ้",
+  allergy_history: "เคยแพ้ยา สมุนไพร หรือยาทา",
 };
 
 const MED_REASON: Record<Med, string> = {
@@ -148,10 +153,10 @@ function safetyReasons(herb: Herb, f: Facts): string[] {
   const ageLimit = Math.max(ex.age_below ?? 0, ca.age_below ?? 0);
   if (ageLimit > 12) add(`ยานี้ไม่แนะนำสำหรับอายุต่ำกว่า ${ageLimit} ปี`);
 
-  const herbConditions = [...ex.conditions, ...ca.conditions];
+  const herbCodes = [...ex.conditions, ...ca.conditions, ...ex.flags, ...ca.flags];
   for (const c of f.conditions) {
     const covers = [c, ...(CONDITION_IMPLIES[c] ?? [])];
-    if (covers.some((code) => herbConditions.includes(code))) add(CONDITION_REASON[c]);
+    if (covers.some((code) => herbCodes.includes(code))) add(CONDITION_REASON[c]);
   }
 
   const herbMeds = [...ex.meds, ...ca.meds];
@@ -175,6 +180,9 @@ function unasked(herb: Herb): string[] {
     ...herb.exclude_if.flags,
     ...herb.caution_if.flags,
   ];
-  const labels = codes.map((c) => UNASKED_LABEL[c]).filter((l): l is string => Boolean(l));
+  const labels = codes
+    .filter((c) => !COVERED.has(c))
+    .map((c) => UNASKED_LABEL[c])
+    .filter((l): l is string => Boolean(l));
   return [...new Set(labels)];
 }
