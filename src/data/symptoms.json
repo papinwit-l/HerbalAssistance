@@ -1,0 +1,161 @@
+{
+  "_note": "enabled=false groups have herbs available but are not yet in CHAT_SCRIPT.md. self_care_tips / see_doctor_if: fill from a credible source.",
+  "groups": [
+    {
+      "code": "cough_sore_throat",
+      "label_th": "ไอ / เจ็บคอ",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/cough_sore_throat.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "cold_flu",
+      "label_th": "ไข้หวัด / คัดจมูก",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/cold_flu.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "covid",
+      "label_th": "โควิด 19",
+      "mode": "conditional",
+      "enabled": true,
+      "icon": "/icons/covid.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "muscle_joint_pain",
+      "label_th": "ปวดกล้ามเนื้อ / ปวดข้อ",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/muscle_joint_pain.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "bloating",
+      "label_th": "ท้องอืด ท้องเฟ้อ",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/bloating.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "diarrhea",
+      "label_th": "ท้องเสีย",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/diarrhea.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "constipation_hemorrhoid",
+      "label_th": "ท้องผูก / ริดสีดวง",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/constipation_hemorrhoid.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "poor_appetite",
+      "label_th": "เบื่ออาหาร",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/poor_appetite.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "dizziness",
+      "label_th": "วิงเวียน",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/dizziness.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "insomnia",
+      "label_th": "นอนไม่หลับ",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/insomnia.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "skin_wound",
+      "label_th": "ผื่น / แผล",
+      "mode": "self_care",
+      "enabled": true,
+      "icon": "/icons/skin_wound.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "numbness_paralysis",
+      "label_th": "ชาจากอัมพฤกษ์-อัมพาต",
+      "mode": "refer",
+      "enabled": true,
+      "icon": "/icons/numbness_paralysis.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "fever",
+      "label_th": "ไข้ / ตัวร้อน",
+      "mode": "self_care",
+      "enabled": false,
+      "icon": "/icons/fever.svg",
+      "self_care_tips": [],
+      "see_doctor_if": [
+        "ไข้ไม่ลดภายใน 3 วัน",
+        "สงสัยไข้เลือดออก"
+      ]
+    },
+    {
+      "code": "menstrual_pain",
+      "label_th": "ปวดประจำเดือน",
+      "mode": "self_care",
+      "enabled": false,
+      "icon": "/icons/menstrual_pain.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "nausea",
+      "label_th": "คลื่นไส้ อาเจียน / เมารถ",
+      "mode": "self_care",
+      "enabled": false,
+      "icon": "/icons/nausea.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "mouth_ulcer",
+      "label_th": "แผลในปาก",
+      "mode": "self_care",
+      "enabled": false,
+      "icon": "/icons/mouth_ulcer.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    },
+    {
+      "code": "allergic_rhinitis",
+      "label_th": "ภูมิแพ้ / แพ้อากาศ",
+      "mode": "self_care",
+      "enabled": false,
+      "icon": "/icons/allergic_rhinitis.svg",
+      "self_care_tips": [],
+      "see_doctor_if": []
+    }
+  ]
+}
