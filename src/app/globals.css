@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   ผู้ช่วยสมุนไพร — design tokens
+   Source of truth: the ผู้ช่วยสมุนไพร design system (tokens.json).
+   One light theme. Older readers on cheap phones, often in sun:
+   big type, big targets, high contrast.
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ─── Colors ───
+     Tailwind's default palette is switched off on purpose, so nobody
+     reaches for red-500 or amber-400 by habit. Every colour in the app
+     must come from the two layers below. bg-transparent / bg-current
+     still work (they are keywords, not palette entries). */
+  --color-*: initial;
+
+  /* Brand layer — identity and everyday UI. */
+
+  /* Primary herbal green. Primary buttons, header bar, selected chips,
+     links. Darker than LINE's green on purpose so the app doesn't dissolve
+     into the LINE chrome. White on it 8:1; as text on surface 7.7:1. */
+  --color-brand-700: #1f5a3a;
+  /* Pressed primary buttons, headings on tinted panels. White on it 11:1. */
+  --color-brand-800: #163f29;
+  /* Persona bubbles, selected-chip fill, info panels. Text on it: ink. */
+  --color-brand-100: #e3efe6;
+
+  /* ขมิ้น accent — DECORATION ONLY: progress bar, avatar ring, timing icons.
+     NEVER as text on surface (2:1) and NEVER for warnings — warnings use
+     refer-*, which is darker and redder so the two can't be confused. */
+  --color-turmeric-500: #e8a317;
+  /* Dose strip on herb cards, tip boxes. Text on it: ink. */
+  --color-turmeric-100: #fbefd2;
+
+  /* Surfaces */
+  --color-surface: #fbf8f1; /* warm off-white page background */
+  --color-surface-raised: #ffffff; /* cards, user bubbles, answer tray */
+
+  /* Text */
+  --color-ink: #2a2116; /* all body text and headings (15:1 on surface) */
+  --color-ink-muted: #5e5446; /* sources, timestamps, helpers (7:1). Never below caption size. */
+  --color-on-brand: #ffffff; /* text/icons on brand-700/800, danger-600, refer-600 */
+  --color-white: #ffffff;
+
+  /* Decorative outline for cards, chips, dividers. Too light to be the only
+     edge of a control — buttons and chips use a brand-700 border instead. */
+  --color-border: #d9d0bf;
+
+  /* Safety layer — RESERVED. Never used for branding or ordinary errors. */
+
+  /* RED FLAG only: full-screen emergency background and the โทร 1669 button.
+     Nothing else in the app is red. White on it 6.5:1. */
+  --color-danger-600: #b3261e;
+  --color-danger-50: #fdecea; /* inner panel on the emergency screen */
+  --color-danger-ink: #8c1d18; /* text on danger-50 (8:1) */
+
+  /* REFER only (see a doctor, not urgent): refer screen and the
+     "ไม่แนะนำ … เพราะ …" rows. White on refer-600 5.4:1. */
+  --color-refer-600: #b54708;
+  --color-refer-50: #fdeee3;
+  --color-refer-ink: #7a2e05; /* text on refer-50 (8.3:1) */
+
+  /* LINE brand green — ONLY for the "เข้าสู่ระบบด้วย LINE" button, and only
+     if you follow LINE's official login-button design. Check LINE's button
+     guidelines before using it; otherwise style that button with brand-700. */
+  --color-line: #06c755;
+
+  /* ─── Type scale ───
+     Tailwind's default sizes are switched off: nothing in this app goes
+     below 16px. Thai needs tall lines for vowels and tone marks (1.4–1.6×).
+     Each size carries its own line height and weight, so text-title alone
+     gives the full style. */
+  --text-*: initial;
+
+  --text-display: 32px; /* red-flag / refer headline only */
+  --text-display--line-height: 44px;
+  --text-display--font-weight: 700;
+
+  --text-title: 24px; /* herb name on cards, screen titles */
+  --text-title--line-height: 34px;
+  --text-title--font-weight: 700;
+
+  --text-heading: 20px; /* section labels in cards: ขนาด, วิธีกิน, ข้อควรระวัง */
+  --text-heading--line-height: 30px;
+  --text-heading--font-weight: 600;
+
+  --text-body-lg: 20px; /* chat bubbles */
+  --text-body-lg--line-height: 32px;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: 18px; /* default; minimum for anything a villager must act on */
+  --text-body--line-height: 30px;
+  --text-body--font-weight: 400;
+
+  --text-label: 18px; /* buttons and answer chips */
+  --text-label--line-height: 26px;
+  --text-label--font-weight: 600;
+
+  --text-caption: 16px; /* sources, timestamps, helper text — the floor */
+  --text-caption--line-height: 24px;
+  --text-caption--font-weight: 400;
+
+  /* ─── Spacing ───
+     Tailwind's default 4px step already matches the design system
+     (p-1 = 4px … p-4 = 16px gutter, p-6 = 24px, p-8 = 32px), so the
+     scale is NOT redeclared. Named sizes below add h-tap, min-h-tap,
+     size-avatar etc. */
+  --spacing-tap: 56px; /* minimum height of EVERY button and chip — older fingers */
+  --spacing-avatar: 40px; /* น้องขมิ้น avatar in header and beside bubbles */
+
+  /* ─── Width ───
+     max-w-app. On a laptop the app sits in a centred phone frame this wide. */
+  --container-app: 440px;
+
+  /* ─── Radius ───
+     Rounded and soft everywhere. Defaults switched off so only these exist. */
+  --radius-*: initial;
+  --radius-sm: 8px; /* badges: ยากิน / ยาใช้ภายนอก, small tags */
+  --radius-md: 16px; /* buttons, cards, bubbles (one 4px corner toward the speaker) */
+  --radius-pill: 9999px; /* answer chips, progress bar, avatar */
+
+  /* ─── Shadow ───
+     Exactly one shadow in the system: herb cards and the answer tray.
+     Everything else is flat. */
+  --shadow-*: initial;
+  --shadow-card:
+    0 1px 2px rgba(42, 33, 22, 0.08), 0 2px 8px rgba(42, 33, 22, 0.06);
+}
+
+/* ─── Fonts ───
+   next/font sets --font-plex-thai on <html> in layout.tsx:
+
+     const plexThai = IBM_Plex_Sans_Thai_Looped({
+       subsets: ["thai", "latin"], weight: ["400", "600", "700"],
+       variable: "--font-plex-thai", display: "swap",
+     });
+
+   It is referenced here under a DIFFERENT name (--font-sans), so this is not
+   circular. `inline` makes the font-sans utility use the var() directly
+   instead of resolving it at :root. Sarabun / Noto are fallbacks only if
+   the user has them installed; they are not loaded. Looped Thai is far
+   easier for older readers than loopless "modern" Thai — keep it. */
+@theme inline {
+  --font-sans:
+    var(--font-plex-thai), "Sarabun", "Noto Sans Thai Looped", system-ui,
+    sans-serif;
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    color-scheme: light; /* one light theme; stops dark-mode browsers recolouring form controls */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans text-body antialiased;
+    min-height: 100dvh;
+  }
+
+  /* 3px focus ring with 2px offset on every tappable element. */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-800);
+    outline-offset: 2px;
+  }
+
+  /* Buttons inherit the Thai font instead of the browser's default. */
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  /* Remove the grey flash on tap in LINE / mobile Safari; the pressed
+     state is drawn by the components (brand-800) instead. */
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
