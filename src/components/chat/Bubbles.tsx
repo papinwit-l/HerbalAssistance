@@ -1,9 +1,12 @@
 import { Pencil } from "lucide-react";
+import { Avatar, type Mood } from "@/components/ui/Logo";
 
-/* น้องขมิ้น's bubbles: left, brand tint, one 4px corner toward her on the first. */
-export function PersonaBubbles({ bubbles }: { bubbles: string[] }) {
+/* น้องขมิ้น's bubbles: left, brand tint, one 4px corner toward her on the first.
+   With `mood`, her face sits above the first bubble (used for moments that matter: the result). */
+export function PersonaBubbles({ bubbles, mood }: { bubbles: string[]; mood?: Mood }) {
   return (
     <div className="flex flex-col gap-2">
+      {mood && <Avatar size={56} mood={mood} />}
       {bubbles.map((text, i) => (
         <p
           key={i}

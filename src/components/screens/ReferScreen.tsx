@@ -34,7 +34,7 @@ export default function ReferScreen({
 
       <div className="flex flex-1 flex-col gap-6 px-4 pt-8 pb-4">
         <div className="flex items-end gap-3">
-          <Avatar size={56} />
+          <Avatar size={64} mood="concerned" />
           <p className="rounded-md rounded-bl-[4px] bg-surface-raised px-4 py-3 text-body-lg text-ink">
             อาการนี้ควรให้แพทย์ตรวจค่ะ แนะนำไปที่ รพ.สต. หรือโรงพยาบาลใกล้บ้านนะคะ
           </p>
