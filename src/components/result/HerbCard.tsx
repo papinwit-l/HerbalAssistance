@@ -1,12 +1,12 @@
-import { Clock, Moon, Utensils, type LucideIcon } from "lucide-react";
+import MaskIcon from "@/components/ui/MaskIcon";
 import type { Herb } from "@/lib/engine/herbs";
 import type { Recommended } from "@/lib/engine/recommend";
 
-const TIMING: Record<Herb["timing"], { label: string; Icon: LucideIcon }> = {
-  before_meal: { label: "ก่อนอาหาร", Icon: Utensils },
-  after_meal: { label: "หลังอาหาร", Icon: Utensils },
-  bedtime: { label: "ก่อนนอน", Icon: Moon },
-  as_needed: { label: "เมื่อมีอาการ", Icon: Clock },
+const TIMING: Record<Herb["timing"], { label: string; icon: string }> = {
+  before_meal: { label: "ก่อนอาหาร", icon: "/icons/ui/timing-before-meal.svg" },
+  after_meal: { label: "หลังอาหาร", icon: "/icons/ui/timing-after-meal.svg" },
+  bedtime: { label: "ก่อนนอน", icon: "/icons/ui/timing-bedtime.svg" },
+  as_needed: { label: "เมื่อมีอาการ", icon: "/icons/ui/timing-as-needed.svg" },
 };
 
 /* Every fact on this card comes straight from herbs.json — never from AI text. */
@@ -23,10 +23,11 @@ export default function HerbCard({ item }: { item: Recommended }) {
         <div className="flex flex-wrap items-center gap-2">
           {herb.form && <span className="text-body text-ink-muted">{herb.form}</span>}
           <span
-            className={`rounded-sm px-2 text-caption font-semibold ${
+            className={`inline-flex items-center gap-1 rounded-sm px-2 py-0.5 text-caption font-semibold ${
               oral ? "bg-brand-700 text-on-brand" : "bg-brand-100 text-brand-800"
             }`}
           >
+            <MaskIcon src={oral ? "/icons/ui/route-oral.svg" : "/icons/ui/route-external.svg"} className="size-5" />
             {oral ? "ยากิน" : "ยาใช้ภายนอก"}
           </span>
         </div>
@@ -38,7 +39,7 @@ export default function HerbCard({ item }: { item: Recommended }) {
         <p className="text-body">{herb.dose}</p>
         {herb.how_to_take && (
           <p className="flex items-center gap-2 text-body font-semibold">
-            <timing.Icon aria-hidden size={22} strokeWidth={2.5} className="shrink-0 text-turmeric-500" />
+            <MaskIcon src={timing.icon} className="size-8 text-brand-700" />
             <span>{herb.how_to_take === "ตามฉลาก" ? `${timing.label} · ทำตามฉลาก` : herb.how_to_take}</span>
           </p>
         )}

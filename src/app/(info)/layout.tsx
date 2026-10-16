@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import { Avatar } from "@/components/ui/Logo";
 
 /* /about, /privacy, /me — plain text pages.
    Same 440px column on every screen size; no phone frame on a laptop,
@@ -19,7 +20,8 @@ export default function InfoLayout({
         >
           <ChevronLeft aria-hidden size={28} strokeWidth={2.5} />
         </Link>
-        <span className="text-label">ผู้ช่วยสมุนไพร</span>
+        <Avatar size={36} />
+        <span className="ml-1 text-label">ผู้ช่วยสมุนไพร</span>
       </header>
 
       <main className="flex flex-1 flex-col gap-6 px-4 py-6">{children}</main>

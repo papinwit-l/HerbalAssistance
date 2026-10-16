@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import { btn } from "@/components/ui/button";
+import Logo from "@/components/ui/Logo";
 import RedFlagScreen from "@/components/screens/RedFlagScreen";
 import ReferScreen from "@/components/screens/ReferScreen";
 import {
@@ -61,6 +62,14 @@ export default function Chat() {
 
       {/* Messages — the only part that scrolls */}
       <main className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4" aria-live="polite">
+        {/* Welcome hero — only before the first answer */}
+        {state.entries.length === 0 && (
+          <div className="flex flex-col items-center gap-2 pt-2 pb-4">
+            <Logo size={104} />
+            <h1 className="text-title text-brand-800">ผู้ช่วยสมุนไพร</h1>
+          </div>
+        )}
+
         {history.map((turn) => (
           <Fragment key={turn.step}>
             <PersonaBubbles bubbles={turn.bubbles} />

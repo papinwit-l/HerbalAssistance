@@ -1,6 +1,7 @@
 "use client";
 
 import { QRCodeSVG } from "qrcode.react";
+import Logo from "@/components/ui/Logo";
 
 /* Set NEXT_PUBLIC_APP_URL to the deployed URL (e.g. the Vercel URL).
    Without it the QR is replaced by a note, so a wrong QR never reaches a judge. */
@@ -16,7 +17,10 @@ export default function DemoAside() {
       className="hidden w-[380px] flex-col gap-6 lg:flex"
     >
       <div className="flex flex-col gap-2">
-        <p className="text-display text-brand-800">ผู้ช่วยสมุนไพร</p>
+        <div className="flex items-center gap-3">
+          <Logo size={64} />
+          <p className="text-display text-brand-800">ผู้ช่วยสมุนไพร</p>
+        </div>
         <p className="text-body-lg">
           น้องขมิ้นช่วยเลือกยาสมุนไพรในบัญชียาหลักแห่งชาติ ที่ปลอดภัยกับคุณ
         </p>

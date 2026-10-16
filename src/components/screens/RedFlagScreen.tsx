@@ -1,7 +1,8 @@
 "use client";
 
-import { Phone, TriangleAlert } from "lucide-react";
+import { Phone } from "lucide-react";
 import { useEffect, useRef } from "react";
+import MaskIcon from "@/components/ui/MaskIcon";
 
 /* R1 — full screen, danger red, NO persona, NO herbs.
    `fixed inset-0`: covers the phone screen; on a laptop the (chat) frame's
@@ -18,7 +19,7 @@ export default function RedFlagScreen({ signs, onBack }: { signs: string[]; onBa
       className="fixed inset-0 z-50 flex flex-col gap-8 overflow-y-auto bg-danger-600 px-6 pt-12 pb-8 text-on-brand"
     >
       <div className="flex flex-col items-center gap-4 text-center">
-        <TriangleAlert aria-hidden size={80} strokeWidth={2} />
+        <MaskIcon src="/icons/ui/alert-warning.svg" className="size-20" />
         <h1 id="redflag-title" ref={titleRef} tabIndex={-1} className="text-display outline-none">
           อาการนี้อาจเป็นอันตราย
         </h1>
