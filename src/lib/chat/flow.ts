@@ -202,6 +202,7 @@ export function resolve(state: ChatState, ctx: FlowContext = {}): Resolution {
       ageGroup,
       sex,
       pregnant: pregnancy === "pregnant" || pregnancy === "unsure",
+      pregnancyUnsure: pregnancy === "unsure",
       breastfeeding: pregnancy === "breastfeeding",
       conditions,
       meds,

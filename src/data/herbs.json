@@ -1,0 +1,1455 @@
+{
+  "_note": "Draft built from two provincial public-health sources (see each entry's sources), not yet checked against the national list (บัญชียาหลักแห่งชาติด้านสมุนไพร). Data teammate: verify every field against the official document, then set status to 'verified' and fill checked_by. status 'todo' = no data found; 'draft' = filled from provincial source. exclude_if = contraindication (always remove). caution_if = caution in source; recommended app policy for villager self-care: treat caution_if pregnant/breastfeeding/age/elderly/conditions/meds/flags as exclude and show the reason. flags need extra chat questions: fever, suspected_dengue, pollen_allergy, capsaicin_allergy, menstruating, heavy_menstruation, postpartum_bleeding, open_wound, acute_inflammation_24h. Dose depends on product strength: show the label dose first, this as reference.",
+  "generated": "2026-10-14",
+  "herbs": [
+    {
+      "id": "plai-cream",
+      "name_th": "ยาไพล (ครีม / น้ำมันไพล)",
+      "type": "single",
+      "route": "external",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "ครีม / น้ำมัน",
+      "dose": "ครีม: ทาบริเวณที่ปวด วันละ 2 ครั้ง เช้า-เย็น · น้ำมัน: ทาบริเวณที่ฟกช้ำ เคล็ดขัดยอก วันละ 2–3 ครั้ง",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามทาบริเวณรอบดวงตา เยื่อบุอ่อน หรือผิวหนังที่มีแผลเปิด"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/plai-cream.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ที่มาแยกเป็น 2 รายการ (ยาไพลครีม, น้ำมันไพล) — รวมไว้รายการเดียว"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "thaowan-priang",
+      "name_th": "ยาเถาวัลย์เปรียง",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร และก่อนนอน",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "peptic_ulcer"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์",
+        "ระวังในผู้ที่เป็นโรคกระเพาะ / แผลในกระเพาะอาหาร"
+      ],
+      "side_effects": [
+        "ระคายเคืองกระเพาะ ปวดท้อง",
+        "ท้องผูก",
+        "ปัสสาวะบ่อย",
+        "คอแห้ง",
+        "ใจสั่น"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/thaowan-priang.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "sahatsathara",
+      "name_th": "ยาสหัศธารา",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "แคปซูล 500 มก.",
+      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "fever"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "hypertension",
+          "heart",
+          "peptic_ulcer",
+          "liver",
+          "kidney"
+        ],
+        "meds": [
+          "other_meds"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์และผู้ที่มีไข้",
+        "ระวังในผู้ป่วยความดันสูง โรคหัวใจ โรคกระเพาะ กรดไหลย้อน",
+        "ผู้ที่มีปัญหาตับหรือไตไม่ควรใช้ต่อเนื่อง",
+        "มีพริกไทยสูง อาจมีผลกับยา phenytoin, propranolol, theophylline, rifampicin"
+      ],
+      "side_effects": [
+        "แสบร้อนกลางอก แสบท้อง",
+        "คลื่นไส้",
+        "คอแห้ง",
+        "ผื่นคัน"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/sahatsathara.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "ya-prik",
+      "name_th": "ยาเจลพริก",
+      "type": "single",
+      "route": "external",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "เจล",
+      "dose": "ทาบริเวณที่ปวด วันละ 3–4 ครั้ง",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "capsaicin_allergy"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [
+          "bp_meds"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ถ้าแพ้พริก",
+        "ห้ามทาบริเวณรอบดวงตาและเยื่อบุอ่อน",
+        "ผู้ที่กินยาความดันกลุ่ม ACE inhibitors อาจไอมากขึ้น"
+      ],
+      "side_effects": [
+        "ผิวแดง",
+        "แสบร้อน เจ็บบริเวณที่ทา"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/ya-prik.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "ya-prakhop",
+      "name_th": "ยาประคบสมุนไพร",
+      "type": "formula",
+      "route": "external",
+      "symptoms": [
+        "muscle_joint_pain"
+      ],
+      "form": "ลูกประคบ (สด / แห้ง)",
+      "dose": "ประคบบริเวณที่ปวดเมื่อยเมื่อมีอาการ",
+      "how_to_take": "ใช้ภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "open_wound",
+          "acute_inflammation_24h"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": true,
+        "conditions": [
+          "diabetes"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามประคบบริเวณที่มีแผล",
+        "ห้ามประคบช่วง 24 ชั่วโมงแรกที่บวม แดง ร้อน",
+        "ระวังลูกประคบร้อนเกินไป โดยเฉพาะผู้ป่วยเบาหวาน เด็ก ผู้ป่วยอัมพาต และผู้สูงอายุ",
+        "หลังประคบไม่ควรอาบน้ำทันที"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/ya-prakhop.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "fah-talai-jone",
+      "name_th": "ยาฟ้าทะลายโจร",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "cold_flu",
+        "cough_sore_throat",
+        "diarrhea"
+      ],
+      "form": "แคปซูล 400 มก.",
+      "dose": "ครั้งละ 3–4 แคปซูล วันละ 4 ครั้ง",
+      "how_to_take": "ตามฉลาก",
+      "timing": "as_needed",
+      "max_days": 7,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": null,
+        "conditions": [
+          "rheumatic_heart"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [
+          "anticoagulant",
+          "bp_meds"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์และให้นมบุตร",
+        "ห้ามใช้ในผู้ที่เคยเป็นโรคหัวใจรูมาติก",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "อาจเสริมฤทธิ์ยาลดความดัน"
+      ],
+      "side_effects": [
+        "ใช้นานอาจชาปลายมือปลายเท้า หรืออ่อนแรง"
+      ],
+      "see_doctor_if": [
+        "ใช้ครบ 7 วันแล้วไม่ดีขึ้น"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/fah-talai-jone.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ขนาดในโรคโควิด 19 ต่างจากนี้ — ยังไม่ผูกกับกลุ่ม covid",
+        "ข้อบ่งใช้ท้องเสียหมายถึงท้องเสียที่ไม่ติดเชื้อ",
+        "ความแรงต่อแคปซูลต่างกันตามผลิตภัณฑ์ (เช่น 350 มก.) ต้องเทียบกับฉลาก"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "prasa-mawaeng",
+      "name_th": "ยาประสะมะแว้ง",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาเม็ดอม",
+      "dose": "อมครั้งละ 3–5 เม็ด เมื่อมีอาการ",
+      "how_to_take": "อมในปาก",
+      "timing": "as_needed",
+      "max_days": 15,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ไม่ควรใช้ต่อเนื่องเกิน 15 วัน"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ใช้แล้วไม่ดีขึ้น"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/prasa-mawaeng.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: ไอมีเสมหะ ช่วยละลายเสมหะ ทำให้ชุ่มคอ"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "kae-ai-makham-pom",
+      "name_th": "ยาแก้ไอผสมมะขามป้อม",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาน้ำ",
+      "dose": "ครั้งละ 15 มล. วันละ 3 ครั้ง หรือจิบเมื่อมีอาการ",
+      "how_to_take": "จิบ",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "diabetes"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในผู้ป่วยเบาหวานที่ควบคุมไม่ได้",
+        "ระวังในผู้ที่ท้องเสียง่าย (มะขามป้อมมีฤทธิ์ระบาย)"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/kae-ai-makham-pom.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ที่มาห้ามเฉพาะเบาหวานที่ควบคุมไม่ได้ — แอปไม่รู้ว่าควบคุมได้หรือไม่ จึงห้ามผู้ป่วยเบาหวานทั้งหมดไว้ก่อน"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khiao-hom",
+      "name_th": "ยาเขียวหอม",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "fever"
+      ],
+      "form": "ยาผง",
+      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร และก่อนนอน",
+      "timing": "before_meal",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "suspected_dengue"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "pollen_allergy"
+        ]
+      },
+      "cautions": [
+        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
+        "ระวังในผู้ที่แพ้เกสรดอกไม้"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ไข้ไม่ลดภายใน 3 วัน"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khiao-hom.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: ไข้ ร้อนใน กระหายน้ำ บรรเทาอาการหัด อีสุกอีใส — อยู่ในกลุ่ม fever ไม่ใช่ cold_flu"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "prap-chomphu-thawip",
+      "name_th": "ยาปราบชมพูทวีป",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "allergic_rhinitis"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 2–3 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร และก่อนนอน",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": 12,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "fever"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "hypertension",
+          "heart",
+          "peptic_ulcer"
+        ],
+        "meds": [
+          "other_meds"
+        ],
+        "flags": [
+          "pollen_allergy"
+        ]
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์ ผู้ที่มีไข้ และเด็ก",
+        "ระวังในผู้ป่วยความดันสูง โรคหัวใจ โรคกระเพาะ",
+        "มีพริกไทยสูง อาจมีผลกับยา phenytoin, propranolol, theophylline, rifampicin"
+      ],
+      "side_effects": [
+        "แสบร้อนบริเวณลิ้นปี่"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/prap-chomphu-thawip.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้คือภูมิแพ้ / แพ้อากาศ ไม่ใช่ไข้หวัด — แยกเป็นกลุ่ม allergic_rhinitis",
+        "age_below 12 ตั้งไว้เพราะที่มาระบุ 'เด็ก' โดยไม่บอกอายุ"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "aloe-vera",
+      "name_th": "ว่านหางจระเข้",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "status": "todo",
+      "notes": [
+        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      ],
+      "checked_by": null
+    },
+    {
+      "id": "phaya-yo-cream",
+      "name_th": "ยาพญายอ (ครีม)",
+      "type": "single",
+      "route": "external",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "form": "ครีม",
+      "dose": "ทาบริเวณที่เป็น วันละ 5 ครั้ง (ทุก 4 ชั่วโมง)",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/phaya-yo-cream.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: เริม งูสวัด — ควรผูกกับตัวเลือกย่อย 'เริม/งูสวัด' ในคำถาม skin_wound"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "phaya-yo-glycerin",
+      "name_th": "ยาพญายอ (กลีเซอรีน)",
+      "type": "single",
+      "route": "external",
+      "symptoms": [
+        "mouth_ulcer"
+      ],
+      "form": "กลีเซอรีน 10 มล.",
+      "dose": "ทาบาง ๆ บริเวณแผลในปาก วันละ 5 ครั้ง",
+      "how_to_take": "ทาในช่องปาก",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/phaya-yo-glycerin.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: เริมในปาก แผลในปาก"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "thong-phan-chang",
+      "name_th": "ยาทิงเจอร์ทองพันชั่ง",
+      "type": "single",
+      "route": "external",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "form": "ทิงเจอร์",
+      "dose": "ทาบริเวณที่เป็น วันละ 2 ครั้ง เช้า-เย็น",
+      "how_to_take": "ใช้ทาภายนอกเท่านั้น",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามทาบริเวณรอบดวงตา เยื่อบุอ่อน หรือผิวหนังที่มีแผลเปิด"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/thong-phan-chang.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: กลาก เกลื้อน น้ำกัดเท้า (เชื้อรา) — ควรผูกกับตัวเลือกย่อย 'ผื่นคันจากเชื้อรา'"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "mangosteen-peel",
+      "name_th": "ยาเปลือกมังคุด",
+      "symptoms": [
+        "skin_wound"
+      ],
+      "status": "todo",
+      "notes": [
+        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      ],
+      "checked_by": null
+    },
+    {
+      "id": "that-op-choei",
+      "name_th": "ยาธาตุอบเชย",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "bloating"
+      ],
+      "form": "ยาน้ำ",
+      "dose": "ครั้งละ 15 มล. วันละ 3 ครั้ง",
+      "how_to_take": "ตามฉลาก",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "liver",
+          "kidney"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ผู้ที่มีปัญหาตับหรือไต ไม่ควรใช้ต่อเนื่อง (การบูรอาจสะสม)"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/that-op-choei.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khamin-chan",
+      "name_th": "ยาขมิ้นชัน",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "bloating"
+      ],
+      "form": "แคปซูล 450–500 มก.",
+      "dose": "ครั้งละ 1–2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": 12,
+        "conditions": [
+          "bile_duct_obstruction"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "gallstones"
+        ],
+        "meds": [
+          "anticoagulant",
+          "bp_meds"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในผู้ที่ท่อน้ำดีอุดตัน",
+        "ผู้ป่วยนิ่วในถุงน้ำดี หญิงตั้งครรภ์ ใช้ภายใต้การดูแลของแพทย์เท่านั้น",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ไม่ควรใช้รักษาเกิน 1 เดือน"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ใช้แล้วอาการไม่ดีขึ้น"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khamin-chan.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        },
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
+          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
+        }
+      ],
+      "notes": [
+        "สตูล: 1–2 แคปซูล (450 มก.) วันละ 3 ครั้ง · จันทบุรี: 2 แคปซูล (500 มก.) วันละ 3 ครั้งหลังอาหาร — ต้องเลือกตามแหล่งทางการ",
+        "ไม่แนะนำเด็กต่ำกว่า 12 ปี (ไม่มีข้อมูลประสิทธิภาพ)"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "lueang-pit-samut",
+      "name_th": "ยาเหลืองปิดสมุทร",
+      "symptoms": [
+        "diarrhea"
+      ],
+      "status": "todo",
+      "notes": [
+        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      ],
+      "checked_by": null
+    },
+    {
+      "id": "ya-kluai",
+      "name_th": "ยากล้วย",
+      "symptoms": [
+        "diarrhea"
+      ],
+      "status": "todo",
+      "notes": [
+        "ยังไม่พบข้อมูลขนาดและข้อห้ามจากแหล่งที่เข้าถึงได้ — ต้องค้นจากบัญชียาหลักแห่งชาติด้านสมุนไพร"
+      ],
+      "checked_by": null
+    },
+    {
+      "id": "makham-khaek",
+      "name_th": "ยามะขามแขก (ชาชง)",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "constipation_hemorrhoid"
+      ],
+      "form": "ชาชง ซองละ 2 ก.",
+      "dose": "ชง 1 ซอง ในน้ำร้อน 200 มล.",
+      "how_to_take": "ดื่มก่อนนอน",
+      "timing": "bedtime",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [
+          "bowel_obstruction"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": 12,
+        "elderly": false,
+        "conditions": [
+          "ibd",
+          "kidney"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ถ้ามีลำไส้อุดตัน",
+        "ระวังในเด็กต่ำกว่า 12 ปี หญิงตั้งครรภ์และให้นมบุตร ผู้ป่วยลำไส้อักเสบ",
+        "ขนาดสูงอาจทำให้ไตอักเสบ"
+      ],
+      "side_effects": [
+        "ปวดบิดท้อง",
+        "ผื่นคัน"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/makham-khaek.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ยามะขามแขกแบบแคปซูลมีขนาดต่างจากชาชง ต้องดูตามผลิตภัณฑ์"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "phet-sangkhat",
+      "name_th": "ยาผสมเพชรสังฆาต",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "constipation_hemorrhoid"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหารทันที",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": true,
+        "breastfeeding": true,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ระวังในหญิงตั้งครรภ์และให้นมบุตร"
+      ],
+      "side_effects": [
+        "ท้องเสีย",
+        "ท้องร้องโครกคราก"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/phet-sangkhat.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้หลัก: ริดสีดวงทวาร"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "mara-khinok",
+      "name_th": "ยามะระขี้นก",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "poor_appetite"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 1 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": true,
+        "age_below": 12,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "suspected_dengue"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [
+          "diabetes_meds"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในเด็กและหญิงให้นมบุตร (มีรายงานน้ำตาลในเลือดต่ำจนชักในเด็ก)",
+        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
+        "เสริมฤทธิ์ยาเบาหวาน อาจทำให้น้ำตาลต่ำ"
+      ],
+      "side_effects": [
+        "คลื่นไส้",
+        "เวียนหัว",
+        "ชาปลายมือปลายเท้า",
+        "ท้องเสีย",
+        "ปวดหัว"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/mara-khinok.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "age_below 12 ตั้งไว้เพราะที่มาระบุ 'เด็ก' โดยไม่บอกอายุ"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "hom-nawakot",
+      "name_th": "ยาหอมนวโกฐ",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "dizziness",
+        "nausea",
+        "insomnia"
+      ],
+      "form": "ยาผง",
+      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "fever"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": [
+          "pollen_allergy"
+        ]
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์และผู้ที่มีไข้",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด และผู้ที่แพ้เกสรดอกไม้"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/hom-nawakot.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ที่มาระบุข้อบ่งใช้รวม 'แน่นหน้าอกจากโรคหัวใจ' ด้วย — แอปไม่ควรแนะนำสำหรับอาการหัวใจ (S8 ส่งไปโรงพยาบาลแล้ว)"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khing-capsule",
+      "name_th": "ยาขิง (แคปซูล)",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "bloating",
+        "nausea"
+      ],
+      "form": "แคปซูล 450–500 มก.",
+      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": 6,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "gallstones"
+        ],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ผู้ป่วยนิ่วในถุงน้ำดีควรใช้ภายใต้การดูแลของแพทย์"
+      ],
+      "side_effects": [
+        "แสบร้อนท้อง",
+        "ระคายเคืองปากและคอ"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khing-capsule.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        },
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
+          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
+        }
+      ],
+      "notes": [
+        "สตูล: หลังอาหาร · จันทบุรี: ก่อนอาหาร — ต้องตรวจกับแหล่งทางการ",
+        "จันทบุรี: ไม่แนะนำเด็กต่ำกว่า 6 ปี"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "khing-tea",
+      "name_th": "ยาขิง (ชาชง)",
+      "type": "single",
+      "route": "oral",
+      "symptoms": [
+        "dizziness",
+        "nausea"
+      ],
+      "form": "ชาชง ซองละ 2 ก.",
+      "dose": "ชง 1 ซอง ในน้ำร้อน 100 มล. วันละ 3 ครั้ง",
+      "how_to_take": "หลังอาหาร",
+      "timing": "after_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": 6,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "gallstones"
+        ],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": []
+      },
+      "cautions": [
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด / ยาต้านเกล็ดเลือด",
+        "ผู้ป่วยนิ่วในถุงน้ำดีควรใช้ภายใต้การดูแลของแพทย์"
+      ],
+      "side_effects": [
+        "แสบร้อนท้อง",
+        "ระคายเคืองปากและคอ"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/khing-tea.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        },
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดจันทบุรี — คู่มือยาสมุนไพรตามกรอบบัญชียารวม จังหวัดจันทบุรี",
+          "url": "https://cto.moph.go.th/web2014/wp-content/uploads/2018/05/mannual61.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: เวียนหัว คลื่นไส้ อาเจียน เมารถเมาเรือ"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "hom-thep-pajit",
+      "name_th": "ยาหอมเทพจิตร",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "dizziness",
+        "bloating"
+      ],
+      "form": "ยาผง",
+      "dose": "ครั้งละ 1–2 ช้อนชา ละลายน้ำ 1 แก้ว วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [
+          "anticoagulant"
+        ],
+        "flags": [
+          "pollen_allergy"
+        ]
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์",
+        "ระวังในผู้ที่กินยาละลายลิ่มเลือด และผู้ที่แพ้เกสรดอกไม้"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/hom-thep-pajit.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ที่มาระบุข้อบ่งใช้: เวียนหัว ท้องอืด — โปสเตอร์จัดไว้ในกลุ่มนอนไม่หลับ ต้องตรวจกับแหล่งทางการก่อนผูกกับ insomnia"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "ha-rak",
+      "name_th": "ยาห้าราก",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "fever"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 3 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร",
+      "timing": "before_meal",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "suspected_dengue",
+          "menstruating"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
+        "ไม่แนะนำสำหรับไข้ช่วงมีประจำเดือน"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ไข้ไม่ลดภายใน 3 วัน"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/ha-rak.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "chan-lila",
+      "name_th": "ยาจันทน์ลีลา",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "fever"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 2 แคปซูล ทุก 4 ชั่วโมง เมื่อมีอาการ",
+      "how_to_take": "เมื่อมีอาการ",
+      "timing": "as_needed",
+      "max_days": 3,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "suspected_dengue"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ไม่แนะนำถ้าสงสัยไข้เลือดออก",
+        "ใช้กับไข้ช่วงมีประจำเดือนได้"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [
+        "ไข้ไม่ลดภายใน 3 วัน"
+      ],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/chan-lila.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [
+        "ข้อบ่งใช้: ไข้ ไข้ตัวร้อน ร่วมกับปวดเมื่อย"
+      ],
+      "status": "draft",
+      "checked_by": null
+    },
+    {
+      "id": "prasa-plai",
+      "name_th": "ยาประสะไพล",
+      "type": "formula",
+      "route": "oral",
+      "symptoms": [
+        "menstrual_pain"
+      ],
+      "form": "แคปซูล 450 มก.",
+      "dose": "ครั้งละ 2 แคปซูล วันละ 3 ครั้ง",
+      "how_to_take": "ก่อนอาหาร",
+      "timing": "before_meal",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": true,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "fever",
+          "heavy_menstruation",
+          "postpartum_bleeding"
+        ]
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "elderly": false,
+        "conditions": [
+          "liver",
+          "kidney"
+        ],
+        "meds": [],
+        "flags": []
+      },
+      "cautions": [
+        "ห้ามใช้ในหญิงตั้งครรภ์ ผู้ที่มีไข้ หรือประจำเดือนมามากกว่าปกติ",
+        "ปวดประจำเดือน: เริ่มกินก่อนมีประจำเดือน 2–3 วัน จนถึงวันที่ 2 ของประจำเดือน",
+        "ผู้ที่มีปัญหาตับหรือไตไม่ควรใช้ต่อเนื่อง"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลากของผลิตภัณฑ์ที่ซื้อ (ความแรงต่อแคปซูลแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/prasa-plai.jpg",
+      "sources": [
+        {
+          "name": "สำนักงานสาธารณสุขจังหวัดสตูล — รายการยาสมุนไพรที่สามารถใช้ทดแทนยาแผนปัจจุบัน 31 รายการ",
+          "url": "https://satun.moph.go.th/wordpress/wp-content/uploads/2019/12/รายการยาสมุนไพรทดแทนยาแผนปัจจุบัน-จำนวน-31-รายการ.pdf"
+        }
+      ],
+      "notes": [],
+      "status": "draft",
+      "checked_by": null
+    }
+  ]
+}

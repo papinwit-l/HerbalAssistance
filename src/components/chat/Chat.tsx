@@ -16,7 +16,7 @@ import {
 import type { AnswerMap, StepId } from "@/lib/chat/types";
 import ChatHeader from "./ChatHeader";
 import { PersonaBubbles, UserBubble } from "./Bubbles";
-import ResultPreview from "./ResultPreview";
+import ResultView from "@/components/result/ResultView";
 import ConsentForm from "./inputs/ConsentForm";
 import MultiChoice from "./inputs/MultiChoice";
 import ProfileForm from "./inputs/ProfileForm";
@@ -36,9 +36,12 @@ export default function Chat() {
   const history = transcript(state, ctx);
 
   const endRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    endRef.current?.scrollIntoView({ block: "end", behavior: reduce ? "auto" : "smooth" });
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    // The result is long: land on its first line, not on the bottom of the last card.
+    if (resultRef.current) resultRef.current.scrollIntoView({ block: "start", behavior });
+    else endRef.current?.scrollIntoView({ block: "end", behavior });
   }, [state]);
 
   /* Values come from the step's own options; flow.answer validates them again. */
@@ -75,7 +78,11 @@ export default function Chat() {
             ]}
           />
         )}
-        {outcome?.kind === "result" && <ResultPreview facts={outcome.facts} notes={outcome.notes} />}
+        {outcome?.kind === "result" && (
+          <div ref={resultRef} className="scroll-mt-4">
+            <ResultView facts={outcome.facts} notes={outcome.notes} />
+          </div>
+        )}
 
         <div ref={endRef} />
       </main>

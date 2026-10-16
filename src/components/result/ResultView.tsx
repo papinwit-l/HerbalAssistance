@@ -1,0 +1,90 @@
+import { CircleSlash } from "lucide-react";
+import symptomsData from "@/data/symptoms.json";
+import { PersonaBubbles } from "@/components/chat/Bubbles";
+import { noteText } from "@/lib/chat/flow";
+import { symptomLabel } from "@/lib/chat/steps";
+import type { Facts, NoteCode } from "@/lib/chat/types";
+import { excludedSentence, recommend } from "@/lib/engine/recommend";
+import HerbCard from "./HerbCard";
+
+/* S11 — summary bubble, herb cards, "ไม่แนะนำ … เพราะ …" rows, notes,
+   self-care tips and when to see a doctor (CHAT_SCRIPT.md S11). */
+export default function ResultView({ facts, notes }: { facts: Facts; notes: NoteCode[] }) {
+  const { recommended, excluded } = recommend(facts);
+  const group = symptomsData.groups.find((g) => g.code === facts.symptom);
+  const label = symptomLabel(facts.selectedSymptom);
+
+  const summary =
+    recommended.length > 0
+      ? `จากอาการ${label}ของคุณ หนูแนะนำสมุนไพร ${recommended.length} ชนิดค่ะ อ่านวิธีใช้และข้อควรระวังด้านล่างนะคะ`
+      : excluded.length > 0
+        ? `ตอนนี้ยังไม่มีสมุนไพรที่เหมาะกับคุณค่ะ เพราะ${[...new Set(excluded.flatMap((e) => e.reasons))].join(" และ")} แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`
+        : `ตอนนี้หนูยังไม่มีข้อมูลสมุนไพรสำหรับอาการ${label}ค่ะ แนะนำให้ปรึกษาเภสัชกรหรือแพทย์นะคะ`;
+
+  const maxDays = recommended.map((r) => r.herb.max_days).filter((d): d is number => d !== null);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <PersonaBubbles bubbles={[summary]} />
+
+      {recommended.map((r) => (
+        <HerbCard key={r.herb.id} item={r} />
+      ))}
+
+      {excluded.length > 0 && (
+        <section className="flex flex-col gap-2">
+          <h2 className="text-heading">ยาที่หนูไม่แนะนำสำหรับคุณ</h2>
+          {excluded.map((e) => (
+            <p
+              key={e.herb.id}
+              className="flex items-start gap-2 rounded-md bg-refer-50 px-4 py-3 text-body text-refer-ink"
+            >
+              <CircleSlash aria-hidden size={22} strokeWidth={2.5} className="mt-1 shrink-0" />
+              <span>{excludedSentence(e)}</span>
+            </p>
+          ))}
+        </section>
+      )}
+
+      {notes.length > 0 && (
+        <ul className="flex flex-col gap-2 rounded-md bg-turmeric-100 p-4 text-body">
+          {notes.map((n) => (
+            <li key={n}>{noteText(n)}</li>
+          ))}
+        </ul>
+      )}
+
+      {group && group.self_care_tips.length > 0 && (
+        <section className="flex flex-col gap-1 rounded-md bg-brand-100 p-4">
+          <h2 className="text-heading">ดูแลตัวเองเบื้องต้น</h2>
+          <ul className="list-disc pl-6 text-body">
+            {group.self_care_tips.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section className="flex flex-col gap-1 rounded-md border-2 border-refer-600 bg-surface-raised p-4">
+        <h2 className="text-heading text-refer-ink">ควรไปพบแพทย์ถ้า…</h2>
+        <ul className="list-disc pl-6 text-body">
+          {(group?.see_doctor_if ?? []).map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+          <li>
+            {maxDays.length > 0
+              ? `ใช้ครบ ${Math.min(...maxDays)} วันแล้วไม่ดีขึ้น`
+              : "ใช้ยาแล้วอาการไม่ดีขึ้น หรือแย่ลง"}
+          </li>
+        </ul>
+      </section>
+
+      {process.env.NODE_ENV !== "production" && (
+        <details className="rounded-md border border-border bg-surface-raised p-3 text-caption">
+          <summary className="cursor-pointer">dev: facts ที่ส่งให้ engine</summary>
+          <pre className="mt-2 overflow-x-auto whitespace-pre-wrap">{JSON.stringify(facts, null, 2)}</pre>
+        </details>
+      )}
+    </div>
+  );
+}

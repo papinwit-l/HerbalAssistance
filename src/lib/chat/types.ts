@@ -113,6 +113,8 @@ export interface Facts {
   sex: Sex;
   /** "ไม่แน่ใจ" counts as pregnant (safe default). */
   pregnant: boolean;
+  /** Answered "ไม่แน่ใจ" — `pregnant` is true, but reasons should say "อาจตั้งครรภ์". */
+  pregnancyUnsure: boolean;
   breastfeeding: boolean;
   conditions: Condition[];
   meds: Med[];
