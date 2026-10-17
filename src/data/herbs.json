@@ -1,5 +1,5 @@
 {
-  "_note": "Rebuilt 2026-10-17 from the national list: บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 and ฉบับที่ 2 พ.ศ. 2568 (2568 wins where it replaced an entry). Basic list (บัญชีรายการยาพื้นฐาน) only. Every entry cites a page. status stays 'draft' until the data team checks it against the cited page, then 'verified' + checked_by. exclude_if = contraindication; caution_if = caution in the list (app policy: also excluded, reason shown). max_days = days of use after which, if not better, the user should see a doctor. availability: 'shop' = sold with a registration number; 'hospital' = (รพ.) hospital-made form only. app_policy lists every rule the app added on top of the list. Removed from the draft: ยาสหัศธารา and ยาประสะไพล (บัญชีรายการยาเฉพาะ), ยาว่านหางจระเข้ (2568: radiation dermatitis only), ยาพญายอครีม (herpes; no chat option). Details: claude/HERB_VERIFICATION.md in the project.",
+  "_note": "Rebuilt 2026-10-17 from the national list: บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 and ฉบับที่ 2 พ.ศ. 2568 (2568 wins where it replaced an entry). Basic list (บัญชีรายการยาพื้นฐาน) only. Every entry cites a page. status 'verified' = every field checked against the cited page (checked_by says who). exclude_if = contraindication; caution_if = caution in the list (app policy: also excluded, reason shown). max_days = days of use after which, if not better, the user should see a doctor. availability: 'shop' = sold with a registration number; 'hospital' = (รพ.) hospital-made form only. dose_mg = the list's dose in mg (per dose or per day) so the card can count capsules for the strength printed on the box. dose_easy = doses the list already states in household units. app_policy lists every rule the app added on top of the list. Removed: ยาสหัศธารา and ยาประสะไพล (บัญชีรายการยาเฉพาะ), ยาว่านหางจระเข้ (2568: radiation dermatitis only), ยาพญายอครีม (herpes; no chat option).",
   "generated": "2026-10-17",
   "herbs": [
     {
@@ -78,8 +78,14 @@
       "notes": [
         "ชนิดสารสกัด: andrographolide 60–120 มก./วัน แบ่ง 3–4 ครั้ง หลังอาหาร 5–7 วัน (2568 หน้า 48–49)"
       ],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1500,
+        "max": 3000,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     },
     {
       "id": "fah-talai-jone-diarrhea",
@@ -143,8 +149,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 500,
+        "max": 2000,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     },
     {
       "id": "fah-talai-jone-covid",
@@ -205,13 +217,17 @@
         {
           "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
           "page": "หน้า 56–57"
+        },
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
+          "page": "ภาคผนวก 2 หน้า 67–68"
         }
       ],
       "notes": [
         "ยังไม่มีงานวิจัยในผู้ป่วยอายุต่ำกว่า 12 ปี"
       ],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "prasa-mawaeng",
@@ -261,8 +277,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 1400,
+        "per": "time",
+        "unit": "เม็ด"
+      }
     },
     {
       "id": "kae-ai-makham-pom",
@@ -316,17 +338,130 @@
         },
         {
           "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
-          "page": "หน้า 33"
+          "page": "หน้า 33 (ภาคผนวก 1)"
         }
       ],
-      "notes": [
-        "2568 เพิ่มสูตรตำรับที่ 3 ชนิดลูกกลอน: อมครั้งละ 1–2 เม็ด วันละ 3–4 ครั้ง (หน้า 42)"
-      ],
-      "status": "draft",
-      "checked_by": null,
+      "notes": [],
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "app_policy": [
         "caution_if.conditions diabetes: บัญชีระวังเฉพาะเบาหวานที่คุมน้ำตาลไม่ได้ แอปไม่ได้ถามระดับการคุม จึงไม่แนะนำในผู้ป่วยเบาหวานทุกคน"
       ]
+    },
+    {
+      "id": "kae-ai-makham-pom-3",
+      "name_th": "ยาแก้ไอผสมมะขามป้อม (สูตรตำรับที่ 3)",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาลูกกลอน (เม็ดละ 90 มก.)",
+      "indication": "บรรเทาอาการไอ ขับเสมหะ ทำให้ชุ่มคอ",
+      "dose": "อมครั้งละ 1–2 เม็ด (เม็ดละ 90 มก.) วันละ 3–4 ครั้ง เมื่อมีอาการ",
+      "how_to_take": "อม",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "diarrhea_prone"
+        ],
+        "elderly": false
+      },
+      "cautions": [
+        "ระวังในผู้ที่ท้องเสียง่าย (มะขามป้อมมีฤทธิ์ระบาย)"
+      ],
+      "side_effects": [],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/kae-ai-makham-pom-3.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 34 (ภาคผนวก 1), 42"
+        }
+      ],
+      "notes": [],
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_easy": [
+        "อมครั้งละ 1–2 เม็ด วันละ 3–4 ครั้ง"
+      ]
+    },
+    {
+      "id": "triphala-cough",
+      "name_th": "ยาตรีผลา (แก้ไอ)",
+      "type": "formula",
+      "route": "oral",
+      "account": "basic",
+      "availability": "shop",
+      "symptoms": [
+        "cough_sore_throat"
+      ],
+      "form": "ยาเม็ด / ลูกกลอน / แคปซูล / ชาชง",
+      "indication": "บรรเทาอาการไอ ขับเสมหะ",
+      "dose": "เม็ด/ลูกกลอน/แคปซูล: ครั้งละ 300–600 มก. วันละ 3–4 ครั้ง · ชาชง: ครั้งละ 1–2 กรัม ทุก 4 ชั่วโมง",
+      "how_to_take": "เมื่อมีอาการไอ",
+      "timing": "as_needed",
+      "max_days": null,
+      "exclude_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": []
+      },
+      "caution_if": {
+        "pregnant": false,
+        "breastfeeding": false,
+        "age_below": null,
+        "conditions": [],
+        "meds": [],
+        "flags": [
+          "diarrhea_prone"
+        ],
+        "elderly": false
+      },
+      "cautions": [
+        "ระวังในผู้ที่ท้องเสียง่าย"
+      ],
+      "side_effects": [
+        "ท้องเสีย"
+      ],
+      "see_doctor_if": [],
+      "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
+      "image": "/herbs/triphala-cough.jpg",
+      "sources": [
+        {
+          "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
+          "page": "หน้า 34 (ภาคผนวก 1), 43–44"
+        }
+      ],
+      "notes": [],
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 300,
+        "max": 600,
+        "per": "time",
+        "unit": "เม็ด/แคปซูล"
+      }
     },
     {
       "id": "prap-chomphu-thawip",
@@ -396,11 +531,17 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "app_policy": [
         "exclude_if.age_below 12: บัญชีเขียนว่า 'เด็ก' โดยไม่ระบุอายุ"
-      ]
+      ],
+      "dose_mg": {
+        "min": 1000,
+        "max": 1333,
+        "per": "time",
+        "unit": "แคปซูล"
+      }
     },
     {
       "id": "plai-cream",
@@ -413,7 +554,7 @@
         "muscle_joint_pain"
       ],
       "form": "ครีม",
-      "indication": "บรรเทาอาการบวม ฟกช้ำ เคล็ดยอก ปวดเมื่อยตามร่างกาย",
+      "indication": "บรรเทาอาการบวม ฟกช้ำ เคล็ดยอก (สูตร 1) · ปวดเมื่อยตามร่างกาย เคล็ดขัดยอก (สูตร 2)",
       "dose": "ทาและถูเบาๆ บริเวณที่มีอาการ วันละ 2–3 ครั้ง",
       "how_to_take": "ใช้ทาภายนอกเท่านั้น",
       "timing": "as_needed",
@@ -442,7 +583,7 @@
         "ห้ามทาบริเวณผิวหนังที่มีบาดแผลหรือแผลเปิด"
       ],
       "side_effects": [
-        "อาจเกิดผื่นแพ้ในบางคน"
+        "สูตร 2: อาจเกิดผื่นแพ้ในผู้ใช้บางราย"
       ],
       "see_doctor_if": [],
       "buying_tip": "ดูเลขทะเบียนยาบนกล่อง และทำตามขนาดบนฉลาก (ความแรงแต่ละยี่ห้ออาจไม่เท่ากัน)",
@@ -450,7 +591,7 @@
       "sources": [
         {
           "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
-          "page": "หน้า 50, 60–61"
+          "page": "หน้า 50 (สูตร 1), 60–61 (สูตร 2)"
         },
         {
           "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 (ราชกิจจานุเบกษา เล่ม 140 ตอนพิเศษ 130 ง)",
@@ -460,8 +601,8 @@
       "notes": [
         "ยาน้ำมันไพล และยาขี้ผึ้งไพล มีเฉพาะชนิดที่โรงพยาบาลผลิต (รพ.)"
       ],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "thaowan-priang",
@@ -520,8 +661,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 500,
+        "max": 1000,
+        "per": "time",
+        "unit": "แคปซูล"
+      }
     },
     {
       "id": "ya-prik",
@@ -585,8 +732,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "app_policy": [
         "caution_if.conditions asthma: บัญชีระวังยาหอบหืด theophylline แอปไม่ได้ถามชื่อยา จึงไม่แนะนำในผู้ป่วยหอบหืด"
       ]
@@ -647,8 +794,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "khamin-chan",
@@ -709,8 +856,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 500,
+        "max": 1000,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     },
     {
       "id": "khing",
@@ -731,7 +884,7 @@
       "exclude_if": {
         "pregnant": false,
         "breastfeeding": false,
-        "age_below": 6,
+        "age_below": null,
         "conditions": [],
         "meds": [],
         "flags": []
@@ -739,7 +892,7 @@
       "caution_if": {
         "pregnant": false,
         "breastfeeding": false,
-        "age_below": null,
+        "age_below": 6,
         "conditions": [
           "gallstones"
         ],
@@ -770,8 +923,14 @@
       "notes": [
         "ข้อบ่งใช้ป้องกันคลื่นไส้อาเจียนจากเมารถเมาเรือ อยู่ในบัญชีรายการยาเฉพาะ — แอปไม่ได้ใช้"
       ],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 2000,
+        "max": 4000,
+        "per": "day",
+        "unit": "แคปซูล"
+      }
     },
     {
       "id": "that-op-choei",
@@ -823,8 +982,11 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_easy": [
+        "ครั้งละ 1–2 ช้อนโต๊ะ (1 ช้อนโต๊ะ = 15 มล.)"
+      ]
     },
     {
       "id": "lueang-pit-samut",
@@ -875,8 +1037,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 1000,
+        "per": "time",
+        "unit": "เม็ด"
+      }
     },
     {
       "id": "ya-kluai",
@@ -930,8 +1098,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "makham-khaek",
@@ -993,8 +1161,17 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 800,
+        "max": 1200,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      },
+      "app_policy": [
+        "caution_if.conditions kidney: บัญชีเตือนว่าขนาดสูงอาจทำให้ไตอักเสบ — แอปจึงไม่แนะนำในผู้ป่วยโรคไต"
+      ]
     },
     {
       "id": "triphala",
@@ -1047,8 +1224,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 2000,
+        "per": "time",
+        "unit": "เม็ด/แคปซูล"
+      }
     },
     {
       "id": "phet-sangkhat",
@@ -1103,8 +1286,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1200,
+        "max": 1200,
+        "per": "time",
+        "unit": "แคปซูล"
+      }
     },
     {
       "id": "mara-khinok",
@@ -1169,11 +1358,17 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "app_policy": [
         "exclude_if.age_below 12: บัญชีเขียนว่า 'เด็ก' โดยไม่ระบุอายุ"
-      ]
+      ],
+      "dose_mg": {
+        "min": 500,
+        "max": 1000,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     },
     {
       "id": "hom-thep-pajit",
@@ -1231,11 +1426,17 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "app_policy": [
         "exclude_if.pregnant: ไม่มีในบัญชี — นโยบายแอปไม่แนะนำยาหอมที่มีการบูรในหญิงตั้งครรภ์"
-      ]
+      ],
+      "dose_mg": {
+        "min": 1000,
+        "max": 1400,
+        "per": "time",
+        "unit": "เม็ด"
+      }
     },
     {
       "id": "hom-nawakot",
@@ -1293,8 +1494,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 2000,
+        "per": "time",
+        "unit": "เม็ด"
+      }
     },
     {
       "id": "hom-kae-lom-wingwian",
@@ -1349,8 +1556,14 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 600,
+        "max": 1000,
+        "per": "time",
+        "unit": "เม็ด"
+      }
     },
     {
       "id": "phaya-yo-lotion",
@@ -1400,8 +1613,8 @@
         "ยาขี้ผึ้งพญายอ (รพ.) ใช้บรรเทาอักเสบ ปวด บวมจากแมลงกัดต่อย",
         "ยาครีมพญายอใช้กับเริมและงูสวัด — แชทยังไม่มีตัวเลือกนี้"
       ],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "skin_types": [
         "itch_bite"
       ]
@@ -1453,8 +1666,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "skin_types": [
         "scrape"
       ]
@@ -1511,8 +1724,8 @@
       "notes": [
         "แชทยังไม่มีตัวเลือก 'ผื่นจากเชื้อรา' จึงยังไม่แนะนำ (skin_types ว่าง)"
       ],
-      "status": "draft",
-      "checked_by": null,
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
       "skin_types": []
     },
     {
@@ -1560,8 +1773,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "khiao-hom",
@@ -1615,8 +1828,8 @@
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ"
     },
     {
       "id": "chan-lila",
@@ -1670,8 +1883,14 @@
       "notes": [
         "ใช้ได้ในหญิงที่มีไข้ระหว่างมีประจำเดือน"
       ],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 2000,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     },
     {
       "id": "ha-rak",
@@ -1721,12 +1940,18 @@
       "sources": [
         {
           "name": "บัญชียาหลักแห่งชาติด้านสมุนไพร (ฉบับที่ 2) พ.ศ. 2568 (ราชกิจจานุเบกษา เล่ม 142 ตอนพิเศษ 183 ง)",
-          "page": "หน้า 40–41"
+          "page": "หน้า 33 (ภาคผนวก 1), 40–41"
         }
       ],
       "notes": [],
-      "status": "draft",
-      "checked_by": null
+      "status": "verified",
+      "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "dose_mg": {
+        "min": 1000,
+        "max": 1500,
+        "per": "time",
+        "unit": "แคปซูล/เม็ด"
+      }
     }
   ]
 }

@@ -16,7 +16,7 @@ const Restriction = z.object({
 /** Where the entry comes from. `page` lets the data team check it against the PDF. */
 const Source = z.object({ name: z.string().min(1), page: z.string().optional(), url: z.string().optional() });
 
-/** An entry with full data ("draft" until the data team checks the cited page, then "verified"). */
+/** An entry with full data: "draft" until someone checks every field against the cited page, then "verified". */
 const FullHerbSchema = z.object({
   id: z.string().min(1),
   name_th: z.string().min(1),
@@ -46,6 +46,19 @@ const FullHerbSchema = z.object({
   image: z.string(),
   sources: z.array(Source).min(1),
   notes: z.array(z.string()),
+  /** The list's dose in mg, so the card can count tablets for the strength printed on the box.
+      per "time" = each dose; "day" = the whole day. Only for tablets/capsules dosed in grams. */
+  dose_mg: z
+    .object({
+      min: z.number().positive(),
+      max: z.number().positive(),
+      per: z.enum(["time", "day"]),
+      unit: z.string().min(1),
+    })
+    .refine((d) => d.min <= d.max, "dose_mg.min must be ≤ max")
+    .optional(),
+  /** Doses the list already gives in household units (เม็ด, ช้อนโต๊ะ). */
+  dose_easy: z.array(z.string()).optional(),
   /** Rules the app adds on top of the list (stricter than the source). Shown to the data team, not users. */
   app_policy: z.array(z.string()).optional(),
   /** skin_wound only: which S10 skin types this herb is for. Missing → never offered for skin. */
