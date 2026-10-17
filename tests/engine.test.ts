@@ -30,9 +30,15 @@ const reasonsFor = (r: ReturnType<typeof recommend>, id: string) =>
 const card = (r: ReturnType<typeof recommend>, id: string) => r.recommended.find((x) => x.herb.id === id)!;
 
 describe("matching", () => {
-  it("adult with sore throat gets the three cough herbs", () => {
+  it("adult with sore throat gets the five cough herbs (2568 added two shop forms)", () => {
     const r = recommend(facts());
-    expect(ids(r.recommended)).toEqual(["fah-talai-jone", "prasa-mawaeng", "kae-ai-makham-pom"]);
+    expect(ids(r.recommended)).toEqual([
+      "fah-talai-jone",
+      "prasa-mawaeng",
+      "kae-ai-makham-pom",
+      "kae-ai-makham-pom-3",
+      "triphala-cough",
+    ]);
     expect(r.excluded).toEqual([]);
   });
 
@@ -104,7 +110,7 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
   it("pregnant + sore throat → ฟ้าทะลายโจร excluded, safer options still shown", () => {
     const r = recommend(facts({ sex: "female", pregnant: true }));
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["ตั้งครรภ์"]);
-    expect(ids(r.recommended)).toEqual(["prasa-mawaeng", "kae-ai-makham-pom"]);
+    expect(ids(r.recommended)).toEqual(["prasa-mawaeng", "kae-ai-makham-pom", "kae-ai-makham-pom-3", "triphala-cough"]);
   });
 
   it("pregnancy ไม่แน่ใจ → excluded as อาจตั้งครรภ์", () => {
@@ -190,7 +196,7 @@ describe("safety filter — PROJECT_GUIDE §10 cases", () => {
   it("unsure medicines play safe: herbs with any medicine warning are excluded", () => {
     const r = recommend(facts({ meds: ["unsure_meds"] }));
     expect(reasonsFor(r, "fah-talai-jone")).toEqual(["ไม่แน่ใจว่ากินยาอะไรอยู่"]);
-    expect(ids(r.recommended)).toEqual(["prasa-mawaeng", "kae-ai-makham-pom"]);
+    expect(ids(r.recommended)).toEqual(["prasa-mawaeng", "kae-ai-makham-pom", "kae-ai-makham-pom-3", "triphala-cough"]);
   });
 
   it("other regular medicines exclude herbs that warn about them", () => {
@@ -246,6 +252,17 @@ describe("herbs.json consistency", () => {
 
   it("every symptom code exists in symptoms.json", () => {
     for (const h of ALL_HERBS) for (const s of h.symptoms) expect(known, `${h.id}: ${s}`).toContain(s);
+  });
+
+  it("every entry is verified, says who checked it, and cites a page", () => {
+    for (const h of HERBS) {
+      expect(h.status, h.id).toBe("verified");
+      expect(h.checked_by, h.id).toBeTruthy();
+    }
+  });
+
+  it("dose_mg is only on tablets/capsules taken by mouth", () => {
+    for (const h of HERBS) if (h.dose_mg) expect(h.route, h.id).toBe("oral");
   });
 
   it("every entry cites a page of the national list", () => {

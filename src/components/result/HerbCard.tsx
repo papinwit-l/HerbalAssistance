@@ -1,4 +1,5 @@
 import MaskIcon from "@/components/ui/MaskIcon";
+import DoseCounter from "./DoseCounter";
 import type { Herb } from "@/lib/engine/herbs";
 import type { Recommended } from "@/lib/engine/recommend";
 
@@ -60,6 +61,12 @@ export default function HerbCard({ item }: { item: Recommended }) {
         ) : (
           <p className="text-body">{herb.dose}</p>
         )}
+        {herb.dose_easy?.map((t) => (
+          <p key={t} className="text-body-lg font-semibold">
+            {t}
+          </p>
+        ))}
+        {herb.dose_mg && <DoseCounter dose={herb.dose_mg} />}
         {herb.how_to_take && herb.timing !== "as_label" && (
           <p className="flex items-center gap-2 text-body font-semibold">
             <MaskIcon src={timing.icon} className="size-8 text-brand-700" />
@@ -97,7 +104,11 @@ export default function HerbCard({ item }: { item: Recommended }) {
 
       <footer className="flex flex-col gap-1 text-caption text-ink-muted">
         <p>ที่มา: {herb.sources.map((s) => (s.page ? `${s.name} ${s.page}` : s.name)).join(" · ")}</p>
-        {herb.status === "draft" && <p>ข้อมูลร่าง — ทีมยังไม่ได้ตรวจทานกับหน้าที่อ้างอิง</p>}
+        {herb.status === "draft" ? (
+          <p>ข้อมูลร่าง — ยังไม่ได้ตรวจทานกับหน้าที่อ้างอิง</p>
+        ) : (
+          <p>ตรวจกับบัญชียาหลักแห่งชาติด้านสมุนไพรแล้ว</p>
+        )}
       </footer>
     </article>
   );
