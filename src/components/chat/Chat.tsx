@@ -18,6 +18,7 @@ import type { AnswerMap, StepId } from "@/lib/chat/types";
 import ChatHeader from "./ChatHeader";
 import { PersonaBubbles, UserBubble } from "./Bubbles";
 import ResultView from "@/components/result/ResultView";
+import type { Herb } from "@/lib/engine/herbs";
 import ConsentForm from "./inputs/ConsentForm";
 import MultiChoice from "./inputs/MultiChoice";
 import ProfileForm from "./inputs/ProfileForm";
@@ -31,7 +32,7 @@ import SymptomGrid from "./inputs/SymptomGrid";
 // walks the first-login mockup (consent → profile form).
 const ctx: FlowContext = {};
 
-export default function Chat() {
+export default function Chat({ herbs }: { herbs: Herb[] }) {
   const [state, setState] = useState<ChatState>(start);
   const view = current(state, ctx);
   const history = transcript(state, ctx);
@@ -89,7 +90,7 @@ export default function Chat() {
         )}
         {outcome?.kind === "result" && (
           <div ref={resultRef} className="scroll-mt-4">
-            <ResultView facts={outcome.facts} notes={outcome.notes} />
+            <ResultView facts={outcome.facts} notes={outcome.notes} herbs={herbs} />
           </div>
         )}
 

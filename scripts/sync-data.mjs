@@ -1,8 +1,9 @@
-/* npm run sync-data — pull the herb list from MySQL (the team's PHP api/herbs_export.php)
-   into src/data/herbs.json, then run the tests. If any test fails, the old file is put back,
-   so a wrong row in MySQL never reaches a herb card.
+/* npm run sync-data — refresh the bundled fallback src/data/herbs.json from MySQL
+   (the team's PHP api/herbs_export.php). The app reads that API at runtime
+   (lib/engine/herbSource.ts); this file is only used when the API can't be reached.
+   After writing the file the tests run; if any fail, the old file is put back.
 
-   Set in .env.local:
+   Uses the same .env.local values as the app:
      HERBS_EXPORT_URL=https://<php-server>/thaiherbalcare/api/herbs_export.php
      HERBS_EXPORT_TOKEN=...   (only if EXPORT_TOKEN is set in the PHP config) */
 

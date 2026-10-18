@@ -4,13 +4,23 @@ import { PersonaBubbles } from "@/components/chat/Bubbles";
 import { noteText } from "@/lib/chat/flow";
 import { symptomLabel } from "@/lib/chat/steps";
 import type { Facts, NoteCode } from "@/lib/chat/types";
+import type { Herb } from "@/lib/engine/herbs";
 import { excludedSentence, recommend } from "@/lib/engine/recommend";
 import HerbCard from "./HerbCard";
 
 /* S11 — summary bubble, herb cards, "ไม่แนะนำ … เพราะ …" rows, notes,
    self-care tips and when to see a doctor (CHAT_SCRIPT.md S11). */
-export default function ResultView({ facts, notes }: { facts: Facts; notes: NoteCode[] }) {
-  const { recommended, excluded } = recommend(facts);
+export default function ResultView({
+  facts,
+  notes,
+  herbs,
+}: {
+  facts: Facts;
+  notes: NoteCode[];
+  /** From MySQL via the PHP export (see lib/engine/herbSource.ts). */
+  herbs: Herb[];
+}) {
+  const { recommended, excluded } = recommend(facts, herbs);
   const group = symptomsData.groups.find((g) => g.code === facts.symptom);
   const label = symptomLabel(facts.selectedSymptom);
   /* Small burn: the list has no self-care herb (aloe is radiation-only since 2568), so show first aid. */
