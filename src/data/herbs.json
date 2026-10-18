@@ -1,5 +1,5 @@
 {
-  "_note": "Rebuilt 2026-10-17 from the national list: บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 and ฉบับที่ 2 พ.ศ. 2568 (2568 wins where it replaced an entry). Basic list (บัญชีรายการยาพื้นฐาน) only. Every entry cites a page. status 'verified' = every field checked against the cited page (checked_by says who). exclude_if = contraindication; caution_if = caution in the list (app policy: also excluded, reason shown). max_days = days of use after which, if not better, the user should see a doctor. availability: 'shop' = sold with a registration number; 'hospital' = (รพ.) hospital-made form only. dose_mg = the list's dose in mg (per dose or per day) so the card can count capsules for the strength printed on the box. dose_easy = doses the list already states in household units. app_policy lists every rule the app added on top of the list. Removed: ยาสหัศธารา and ยาประสะไพล (บัญชีรายการยาเฉพาะ), ยาว่านหางจระเข้ (2568: radiation dermatitis only), ยาพญายอครีม (herpes; no chat option).",
+  "_note": "Exported from MySQL simp_thaiherbalcare by api/herbs_export.php. Edit the data in MySQL, not in this file. Sources: บัญชียาหลักแห่งชาติด้านสมุนไพร พ.ศ. 2566 + ฉบับที่ 2 พ.ศ. 2568. See claude/HERB_VERIFICATION.md for field meanings.",
   "generated": "2026-10-17",
   "herbs": [
     {
@@ -1163,15 +1163,15 @@
       "notes": [],
       "status": "verified",
       "checked_by": "Claude (AI) ตรวจทีละหัวข้อกับหน้าที่อ้างอิง 2026-10-17 — ทีมควรสุ่มตรวจซ้ำ",
+      "app_policy": [
+        "caution_if.conditions kidney: บัญชีเตือนว่าขนาดสูงอาจทำให้ไตอักเสบ — แอปจึงไม่แนะนำในผู้ป่วยโรคไต"
+      ],
       "dose_mg": {
         "min": 800,
         "max": 1200,
         "per": "time",
         "unit": "แคปซูล/เม็ด"
-      },
-      "app_policy": [
-        "caution_if.conditions kidney: บัญชีเตือนว่าขนาดสูงอาจทำให้ไตอักเสบ — แอปจึงไม่แนะนำในผู้ป่วยโรคไต"
-      ]
+      }
     },
     {
       "id": "triphala",
